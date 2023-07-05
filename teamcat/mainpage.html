@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- 부트스트랩css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- JQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- 부트스트랩js -->
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="mainpage.css">
+
 </head>
 <body>
-    
+
+    <div class="container">
+        <div class="row">
+            <div class="header_box">
+                <div class="">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        var key = '61426f707465736336386261637372';
+        var type = 'json';
+        var service = 'GetJobInfo';
+        var startIndex = 0;
+        var endIndex = 10;
+      
+        var url = 'http://openapi.seoul.go.kr:8088/' + key + '/json/' + service + '/' + startIndex + '/' + endIndex + '/';
+      
+        fetch(url)
+          .then(function(response) {
+            console.log(response);
+            return response.json();
+          })
+          .then(function(data) {
+            console.log(data.GetJobInfo);
+          });
+      </script>
+
+
+
+
+
 </body>
+
 </html>
