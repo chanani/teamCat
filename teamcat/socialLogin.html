@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="mainjs/kakao.min.js"></script>
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+    <style>
+        * {
+            list-style: none;
+
+        }
+        /* ul{
+            padding: 0;
+        } */
+
+
+        .join_content {
+            max-width: 500px;
+            max-height: 700px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            margin-top: 80px;
+            padding: 32px;
+
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+        }
+
+        .membertype {
+            overflow: hidden;
+        }
+
+        .membertype :nth-child(1) {
+            float: left;
+        }
+
+        .membertype :nth-child(1) {
+            float: right;
+        }
+
+
+        .membertype>button {
+            border: 1px solid#e2e0e0;
+            background-color: #ffffff;
+            width: 200px;
+            height: 50px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 20px;
+        }
+
+        .membertype button:hover {
+            border-top: 3px solid #203dc2;
+            touch-action: none;
+            cursor: pointer;
+
+        }
+
+        .join_form .join_btn {
+            background-color: #fff;
+            width: 100%;
+            height: 50px;
+            border: 1px solid#203dc2;
+            border-radius: 7px;
+            margin: 5px;
+            padding: 5px;
+            color: #203dc2;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .social_login_tit {
+            margin: 0 auto;
+        }
+
+        .social_login_tit>h4 {
+            color: #777;
+            display: block;
+            margin-top: 20px;
+            margin-bottom: 0;
+            text-align: center;
+
+        }
+
+        .membertype {
+            display: flex;
+            justify-content: center;
+            padding: 10px
+        }
+
+        .membertype button {
+            flex: 1;
+        }
+
+        .social_login_box img {
+            width: 200px;
+            height: auto;
+        }
+
+        .social_login_box img {
+            width: 200px;
+            height: auto;
+        }
+
+        .social_login {
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+            margin-bottom: 30px;
+            margin-top: 20px;
+            padding: 20px;
+            padding-top:0;
+ 
+        }
+
+        .social_login li {
+            float: left;
+            margin: 5px;
+            height: 55px;
+            padding: 0;
+        }
+        .social_login .login_left{
+            float: left;
+            margin: 5px;
+        }
+        #kakao-login-btn >img {
+            width: 200px;
+            height:55px;
+        }
+        .social_login.login_rigth{
+            float:right;
+            margin: 5px;
+        }
+
+        .login > p {
+            display: inline-block;
+            color: #888;
+        }
+
+        .login > p > a{
+            text-decoration: none;
+            display: inline-block;
+            color: #888;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="join_content">
+        <div class="join_box">
+            <ul class="membertype">
+                <button type="button">개인회원</button>
+                <button type="button">기업회원</button>
+            </ul>
+
+            <!-- join box -->
+            <div class="social_login_box">
+                <div class="social_login_tit">
+                    <h4>간편 가입 & 로그인하기</h4>
+                </div>
+
+                <ul class="social_login">
+                    <li class="login_left">
+                        <a id="kakao-login-btn" href="javascript:loginWithKakao()"> <!-- JS 함수 호출 -->
+                            <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+                                alt="카카오 로그인 버튼" />
+                        </a>
+                        <p id="token-result"></p>
+                    </li>
+                    <li class="login_right">
+                        <a href="join.html" id="naverIdLogin_loginButton">
+                            <img src="img/naverimg.png"> </a>
+                    </li>
+                </ul>
+
+  
+
+                <div class="join_form">
+                    <button type="button" onclick="location.href='join.html'" class="join_btn">아이디 만들기
+                    </button>
+                    <div class="login">
+                        <p>이미 계정이 있나요?     <a href="login.html">ID 로그인하기</a></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            // //1. 카카오 sdk 초기화
+            Kakao.init('c5c663040a351dfbd823169322d98be4');
+            Kakao.isInitialized();
+
+            //2. 인가서버 창 띄우기
+
+            function loginWithKakao() {
+                Kakao.Auth.authorize({
+                    redirectUri: 'http://127.0.0.1:5502/teamcat/mainpage.html',
+                });
+            }
+
+            
+        </script>
+
+
+
+
+</body>
+
+</html>
