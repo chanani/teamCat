@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" href="mainpage.css">
     <script src="mainjs/coomon.js"></script>
     <script src="mainjs/html.js"></script>
@@ -14,291 +13,202 @@
     <script src="mainjs/kakao.min.js"></script>
     <script src="mainjs/make.js"></script>
     <script src="mainjs/owl.js"></script>
-
-    <script src="mainjs/kakao.min.js"></script>
-    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-
     <style>
-        * {
+        li {
             list-style: none;
-
         }
 
-        /* ul{
-            padding: 0;
-        } */
-
-        /* modal */
-
-        .modal {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 100%;
-
-            display: none;
-
-            background-color: rgba(0, 0, 0, 0.4);
+        hr {
+            margin: 0;
+            width: 650px;
+            background-color: black;
         }
 
-        .social_login_box .social_login_tit {
-            padding-top: 14px;
-        }
-
-        .social_login_box .social_login_tit>input {
-            margin: 0 auto;
-            display: block;
-            width: 406px;
-            height: 45px;
-            padding-left: 5px;
-            font-size: 15px;
-            border-color: 1px solid #a7a6a6;
-        }
-
-        .social_login_box .social_login_tit>.login_id,
-        .social_login_box .social_login_tit>.login_pw {
-            margin-bottom: 10px;
-        }
-
-        .social_login_box .login_btn_tit {
-            text-align: center;
-            margin: 0 auto;
-            width: 406px;
-        }
-
-        .social_login_box .login_btn_tit .loginpage_btn {
-            width: 406px;
-            height: 48px;
-            background-color: rgb(140, 179, 238);
-            color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 19px;
-        }
-
-
-        .join_content {
-            max-width: 500px;
-            max-height: 700px;
-
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-
-            padding: 32px;
-            margin-top: 50px;
-            background: #fff;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            border-radius: 10px;
-            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
-        }
-
-        .membertype {
-            overflow: hidden;
-        }
-
-        .membertype :nth-child(1) {
-            float: left;
-        }
-
-        .membertype :nth-child(1) {
-            float: right;
-        }
-
-
-        .membertype>button {
-            border: 1px solid#e2e0e0;
-            background-color: #ffffff;
-            width: 200px;
-            height: 50px;
-            margin: 5px;
-            padding: 5px;
-            font-size: 20px;
-        }
-
-        .membertype .gain {
-            border-top: 3px solid #203dc2;
-        }
-
-
-        .membertype button:hover {
-            /* border-top: 3px solid #203dc2; */
-            touch-action: none;
-            cursor: pointer;
-
-        }
-
-        .join_form .join_btn {
-            background-color: #fff;
-            width: 100%;
-            height: 50px;
-            border: 1px solid#203dc2;
-            border-radius: 7px;
-            margin: 5px;
-            padding: 5px;
-            color: #203dc2;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        .social_login_tit {
-            margin: 0 auto;
-        }
-
-        .social_login_tit>h4 {
-            color: #777;
-            display: block;
-            margin-top: 20px;
+        .title {
+            color: #000000;
+            font-size: 18px;
+            display: inline-block;
             margin-bottom: 0;
-            text-align: center;
-
+            font-weight: bold;
         }
 
-        .membertype {
-            display: flex;
-            justify-content: center;
-            padding: 10px
-        }
+        .p1 {
 
-        .membertype button {
-            flex: 1;
-        }
-
-        .social_login_box img {
-            width: 200px;
-            height: auto;
-        }
-
-        .social_login_box img {
-            width: 200px;
-            height: auto;
-        }
-
-        .social_login {
-            display: flex;
-            justify-content: space-between;
-            overflow: hidden;
-            margin-bottom: 30px;
-            margin-top: 20px;
-            padding: 8px;
-            padding-top: 0;
-
-        }
-
-        .social_login li {
-            float: left;
-            margin: 5px;
-            height: 55px;
-            padding: 0;
-        }
-
-        .social_login .login_left {
-            float: left;
-            margin: 5px;
-        }
-
-        #kakao-login-btn>img {
-            width: px;
-            height: 55px;
-        }
-
-        .social_login.login_rigth {
-            float: right;
-            margin: 5px;
-        }
-
-        .login>p {
+            color: black;
+            font-size: 18px;
             display: inline-block;
-            color: #888;
+            margin-bottom: 0;
+            font-weight: bold;
+
         }
 
-        .login>p>a {
-            text-decoration: none;
+        .p2 {
+            color: #999;
+            font-size: 12px;
             display: inline-block;
-            color: #888;
+            margin-bottom: 0;
+
         }
 
-
-
-        /* footer */
-
-        #footer {
-            text-align: center;
-            padding-top: 713px;
+        .content {
+            margin: 0 auto;
+            padding-right: 20px;
         }
 
-        #footer #ft_top {
-            background: #a7a6a6;
-            padding-bottom: 30px;
+        .content1 {
+            margin: 10px;
+            padding: 10px;
         }
 
-        #footer #ft_top ul {
-            margin: 40px auto 10px auto;
+        .title_form {
+            margin-top: 0;
+            width: 700px;
+            height: 70px;
+            border: none;
             display: inline-block;
+            font-size: 30px;
+            color: #999;
+            border-top: 1px solid #a7a7a7;
         }
 
-        #footer #ft_top ul:after {
-            content: "";
-            clear: both;
-            display: block;
+        .title_form:focus {
+            outline: none;
+            border: 2px solid rgb(126, 141, 151);
+            border-radius: 10px;
         }
 
-        #footer #ft_top ul li {
-            float: left;
-            padding: 0 10px;
-            position: relative;
-        }
-
-        #footer #ft_top ul li:after {
-            content: "";
-            width: 1px;
-            height: 66%;
-            position: absolute;
-            right: -1px;
-            top: 58%;
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
+        .form-control {
+            border: none;
+            display: inline-block;
+            max-width: 680px;
             background: #fff;
-            display: block;
+            border-radius: 5px;
         }
 
-        #footer #ft_top ul li:last-child:after {
-            display: none;
+        .form-control:focus {
+            outline: none;
+            border: 2px solid rgb(126, 141, 151);
         }
 
-        #footer #ft_top ul li a {
-            font-size: 16px;
-            color: #fff;
+        .date {
+            overflow: hidden;
+            padding: 10px;
         }
 
-        #footer #ft_top p {
-            font-size: 16px;
-            color: #faf1f1;
-            line-height: 26px;
+        .date .left {
+            float: left;
         }
 
-        #footer .ft_copy {
-            padding: 15px 0;
-            background: #a7a6a6;
-            color: #fff;
-            font-size: 15px;
-            font-family: "맑은 고딕", "Malgun Gothic", 'Noto Sans CJK KR Regular', "돋움", "Dotum", "굴림", "Gulim", "Arial", "Verdana", "Tahoma";
+        .date .left3 {
+            line-height: 30px;
+            margin-left: 20px;
+        }
+
+        .date .left3>input {
+            height: 20px;
+            width: 200px;
+        }
+
+        .work_add>ul {
+            overflow: hidden;
+        }
+
+        .work_add>ul>li {
+            float: left;
+            font-size: 14px;
+        }
+
+        .work_add>ul>li>button {
+            float: left;
+        }
+
+        .skil_div>ul {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .skil_div>ul>li {
+            float: left;
+            font-size: 14px;
+        }
+
+        .skil_div>ul>li>button {
+            float: left;
+        }
+
+        .addBtn {
+            border: none;
+            width: 100px;
+            height: 30px;
+            color: white;
+            border-radius: 5px;
+            background-color: rgb(53, 90, 255);
+            margin: 20px;
+        }
+
+        /* 기본 테두리 스타일 */
+        .form-control {
+            border: 1px solid #999;
+            color: #a7a7a7;
+        }
+
+        .form-control::placeholder {
+
+            color: #a7a7a7;
+        }
+
+
+        /* 클릭 시 테두리 스타일 */
+        .form-control:focus {
+            outline: none;
+            border: 2px solid rgb(149, 148, 148);
+            border-radius: 2px;
+        }
+
+        .content_wrap {
+            width: 1000px;
+            margin-top: 30px;
+
+        }
+
+        .content {
+            width: 1000px;
+            margin-left: 460px;
+            padding-top: 50px;
+            border: 1px solid #b4b3b3;
+            padding-left: 150px;
+            margin-top: 100px;
+            border-radius: 5px;
+        }
+
+        .skil_div {
+            margin-top: -12px;
+        }
+
+        .content1>.p1 {
+            padding-bottom: 5px;
+        }
+
+        .content .title {
+            font-size: 26px;
+        }
+
+        .addBtn_box {
+            border-top: 1px solid #a7a7a7;
+            width: 700px;
+        }
+
+        .gmd-5 {
+            -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
         }
     </style>
 </head>
 
 <body>
-
 
     <div id="new_header">
         <div class="width_fix">
@@ -451,7 +361,7 @@
                     <li class=""><a href="searchpage.html">채용정보</a>
                         <div class="sub_gnb" style="overflow: hidden; display: none;">
                             <ul class="depth2">
-                                <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfo">•
+                                <li><a href="searchpage.html">•
                                         통합검색</a>
                                 </li>
                                 <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfoList1">•
@@ -723,78 +633,203 @@
         <!-- top메뉴종료 -->
     </div>
 
-    <div class="join_content">
-        <div class="join_box">
-            <ul class="membertype">
-                <button type="button" class="gain">개인회원</button>
-                <button type="button" onclick="location.href='companypage.html'">기업회원</button>
-            </ul>
+    <div class="constent_wrap">
+        <div class="content gmd-5">
+            <p class="title">이력서 제목</p>
+            <br>
+            <hr style="width: 100%;">
+            <input type="text" class="title_form " placeholder="제목을 입력 해주세요">
+            <div class="content1">
+                <p class="p1">이름/ e-mail / phone</p>
+                <br>
+                <hr />
+                <input type="text" class="form-control" placeholder="이름">
+                <input type="email" class="form-control" placeholder="yopy0817@gmail.com">
+                <input type="text" class="form-control" placeholder="000-000-0000">
+            </div>
+            <div class="content1">
+                <p class="p1">간단 소개글</p>
+                <br>
+                <hr />
+                <p class="p2">• 본인의 업무 경험을 기반으로 핵심역량과 업무 스킬을 간단히 작성해주세요. <br />
+                    • 3~5줄로 요약하여 작성하는 것을 추천합니다!</p>
+            </div>
+            <div class="intro">
+                <textarea class="form-control" maxlength="4000" style="height: 100px; width: 630px; color: rgb(59, 61, 64); 
+                border: 1px solid#999; margin-left: 26px; resize: none;">
+        </textarea>
+            </div>
+            <div class="content1">
+                <p class="p1">경력</p>
+                <hr />
+                <br>
+                <p class="p2"> • 담당하신 업무 중 우선순위가 높은 업무를 선별하여 최신순으로 추가해주세요. <br />
+                    • 신입의 경우, 직무와 관련된 대외활동, 인턴, 계약직 경력 등이 있다면 작성해주세요. <br />
+                    • 업무 또는 활동 시 담당했던 역할과 과정, 성과에 대해 자세히 작성해주세요. <br />
+                <div class="date">
+                    <div class="left">
+                        <p class="p2">입사일</p>
+                        <input type="date" class="date_start form-control">
+                    </div>
+                    <div class="left">
+                        <p class="p2">퇴사일</p>
+                        <input type="date" class="date_end form-control">
+                    </div>
+                    <div class="left left3">
+                        <input type="text" class="work_text form-control" placeholder="경력추가">
+                        <button type="button" class="btn_work">+</button>
+                    </div>
 
-            <!-- join box -->
-            <div class="social_login_box">
-                <div class="social_login_tit">
-                    <input type="text" placeholder="아이디" class="login_id">
-                    <input type="password" placeholder="비밀번호" class="login_pw">
                 </div>
-                <div class="login_btn_tit">
-                    <button class="loginpage_btn">로그인</button>
+                <div class="work_add">
+
                 </div>
+            </div>
 
-                <ul class="social_login">
-                    <li class="login_left">
-                        <a id="kakao-login-btn" href="javascript:loginWithKakao()" class="btn-open-popup">
-                            <!-- JS 함수 호출 -->
-                            <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
-                                alt="카카오 로그인 버튼" />
-                        </a>
-                        <p id="token-result"></p>
-                    </li>
-                    <li class="login_right">
-                        <a href="join.html" id="naverIdLogin_loginButton">
-                            <img src="img/naverimg.png"> </a>
-                    </li>
-                </ul>
-
-
-
-                <div class="join_form">
-                    <button type="button" onclick="location.href='join.html'" class="join_btn">아이디 만들기
-                    </button>
-                    <div class="login">
-                        <p>이미 계정이 있나요? <a href="login.html">ID 로그인하기</a></p>
-
+            <div class="content1">
+                <p class="p1">학력</p>
+                <hr />
+                <p class="p2">최종학력</p>
+                <br />
+                <div class="school_cont">
+                    <select id="school ">
+                        <option value="">선택</option>
+                        <option value="초등학교 졸업">초등학교 졸업</option>
+                        <option value="중학교 졸업">중학교 졸업</option>
+                        <option value="고등학교 졸업">고등학교 졸업</option>
+                        <option value="전문대학 재학중">전문대학 재학중</option>
+                        <option value="전문대학 휴학중">전문대학 휴학중</option>
+                        <option value="전문대학 졸업">전문대학 졸업</option>
+                        <option value="4년제대학 재학중">4년제대학 재학중</option>
+                        <option value="4년제대학 휴학중">4년제대학 휴학중</option>
+                        <option value="4년제대학 졸업">4년제대학 졸업</option>
+                        <option value="석사과정">석사과정</option>
+                        <option value="박사과정">박사과정</option>
+                    </select>
+                    <span class="school_result"></span>
+                </div>
+            </div>
+            <div class="content1 skil_cont">
+                <p class="p1">자격증</p>
+                <hr />
+                <div class="skil_div">
+                    <div>
+                        <br>
+                        <p class="p2">취득일자</p>
+                        <input type="date" class="date_skil  form-control">
+                        <p class="p2">자격증이름</p>
+                        <input type="text" class="skil_text  form-control" placeholder="자격증이름 입력">
+                        <button type="button" class="btn_skil  form-control">+</button>
                     </div>
                 </div>
+            </div>
+            <div class="content1">
+                <p class="p1">포트폴리오 등록</p>
+                <hr />
+                <p class="p2"> • 포트폴리오 파일을 선택해주세요</p>
+                <div>
+                    <input type="file" name="file">
+                </div>
+            </div>
+            <hr style="width: 100%;">
+            <div class="addBtn_box">
+
+                <button type="button" class="addBtn" onclick="location.href='mainpage.html'">등록하기</button>
             </div>
         </div>
     </div>
 
+
     <script>
-        // //1. 카카오 sdk 초기화
-        Kakao.init('c5c663040a351dfbd823169322d98be4');
-        Kakao.isInitialized();
 
-        //2. 인가서버 창 띄우기
+        var date_start = document.querySelector(".date_start");
+        var date_end = document.querySelector(".date_end");
+        var date_skil = document.querySelector(".date_skil");
 
-        function loginWithKakao() {
-            Kakao.Auth.authorize({
-                redirectUri: 'http://127.0.0.1:5502/teamcat/mainpage.html',
-            });
+        var btn_work = document.querySelector(".btn_work");
+        var btn_skil = document.querySelector(".btn_skil");
+
+        var work_add = document.querySelector(".work_add");
+        var work_list = document.querySelector(".work_list");
+
+
+        // 경력추가 버튼
+        btn_work.onclick = function () {
+            var li = document.createElement("li");
+            var li_btn = document.createElement("button");
+            var work_text = document.querySelector(".work_text");
+            var ul = document.createElement('ul');
+            li_btn.innerHTML = "x";
+
+            ul.appendChild(li);
+            ul.appendChild(li_btn);
+            work_add.appendChild(ul);
+
+            li_btn.type = 'button';
+            li.innerHTML = "[ 근무기간: " + date_start.value + "~" + date_end.value + " ]   근무지: " + work_text.value;
+
+            li_btn.onclick = del;
+
+        }
+        //추가된 경력 삭제버튼
+        function del() {
+            this.parentElement.remove();
         }
 
-        var loginBtn = document.querySelector(".loginpage_btn");
-        var loginId = document.querySelector(".login_id");
 
-        loginBtn.onclick = function () {
 
-    
-            localStorage.setItem(1,loginId.value);
-            location.href = "mainpage.html";
+        // //학력 선택시 
+        // var school = document.querySelector("#school");
+        // var school_cont = document.querySelector("school_cont");
+        // var school_result = document.querySelector(".school_result");
+
+        // school.onchange= function(){
+        //     console.log(school.innerHTML);
+        //     school_result.innerHTML = school.value;
+
+        // }
+
+
+        // 자격증 추가
+        var skil_div = document.querySelector(".skil_div");
+        var date_skil = document.querySelector(".date_skil");
+        var btn_skil = document.querySelector(".btn_skil");
+        var skil_cont = document.querySelector("skil_cont");
+
+
+        btn_skil.onclick = function () {
+            var li = document.createElement("li");
+            var li_btn2 = document.createElement("button");
+            var skil_text = document.querySelector(".skil_text");
+            var ul = document.createElement('ul');
+
+            li_btn2.innerHTML = "x";
+            ul.appendChild(li);
+            ul.appendChild(li_btn2);
+            skil_div.appendChild(ul);
+
+            li_btn2.type = 'button';
+            li.innerHTML = "[ 취득일: " + date_skil.value + " ]     [ 자격증명: " + skil_text.value + " ]";
+
+            li_btn2.onclick = del;
+
+
         }
+
+        /* 내일 할일 */
+     /*    function del() {
+
+        } this.parentElement.remove();
+        // 등록하기 버튼
+
+        var addBtn = document.querySelector(".addBtn");
+ */
 
 
     </script>
 
+
+    <!-- footer -->
 
     <div id="footer">
         <div id="ft_top">
@@ -846,11 +881,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- footer -->
 
 
 </body>

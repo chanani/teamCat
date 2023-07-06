@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="mainpage.css">
+    <script src="mainjs/coomon.js"></script>
+    <script src="mainjs/html.js"></script>
+    <script src="mainjs/html.js"></script>
+    <script src="mainjs/jquery.js"></script>
+    <script src="mainjs/kakao.min.js"></script>
+    <script src="mainjs/make.js"></script>
+    <script src="mainjs/owl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <link rel="stylesheet" href="sj.css">
+    
+    <style>
+        input,
+        button,
+        label,
+        textarea,
+        select {
+            vertical-align: middle;
+        }
+        select:focus{
+            border: 2px solid #097dd4;
+            outline-style:none ;
+        }
+        input:focus{
+            border: 2px solid #097dd4;
+            outline-style:none ;
+        }
+
+        #content {
+            width: 1020px;
+            /* height: 2353px; */
+            margin: 0 auto;
+            margin-top: 97px;
+        }
+
+        .head_tag {
+            font-size: 30px;
+            margin-bottom: 30px;
+
+        }
+
+        .text2 {
+            width: 100px;
+            height: 24px;
+            line-height: 50px;
+            margin-bottom: 45px;
+        }
+
+        .tb_search {
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid #e1e1e1;
+            border-bottom: 0;
+            font-size: 14px;
+        }
+
+        .tb_search th {
+            border-right: 1px solid #e1e1e1;
+            width: 100px;
+        }
+
+        .tb_search th,
+        .tb_search td {
+            border-bottom: 1px solid #e1e1e1;
+            padding: 10px 10px 10px 20px;
+            height: 30px;
+            text-align: left;
+        }
+
+        .tb_search input[type=text] {
+            width: 70px;
+            height: 24px;
+            margin: 4px;
+        }
+
+        .job_select {
+            width: 140px;
+            height: 27px;
+        }
+        .region_select {
+            width: 140px;
+            height: 27px;
+        }
+        .input_carrer {
+            width: 50px;
+        }
+
+        #content_tbody {
+            font-size: 14px;
+        }
+
+        .search_btn {
+            background-color: #505050;
+            color: #fff;
+            border: 1px solid #414141;
+            height: 30px;
+            padding: 0 16px;
+            text-decoration: none;
+            margin: 0 auto;
+            display: inline-block;
+            line-height: 28px;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .search_btn_ {
+            margin-top: 30px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .tit1{
+            height: 34px;
+            margin: 50px 0 20px;
+            padding-left: 28px;
+            color: #333;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 34px;
+            letter-spacing: -1px;
+            background: url(/miniproject/imgsj/bul_tit1.gif) no-repeat 0;
+        }
+        .tb_list {
+            border: none;
+            width: 100%;
+            border-top: 3px solid #4c4a4a;
+            font-size: 14px;
+            height: 200px;
+        }
+        .tb_list th{
+            border: none;
+            padding: 8px 5px;
+            height: 29px;
+            line-height: 20px;
+            text-align: center;            
+        }
+        .tb_list tr {
+            width: 100%;
+        }
+        .tb_list_{
+            width: 1020px;
+        }
+
+        .pagination{
+            margin-top: 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .pagination .direction{
+            width: 43px;
+            padding: 0;
+            /* text-indent: 100%; */
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .pagination a{
+            display: inline-block;
+            min-width: 37px;
+            height: 43px;
+            padding: 0 3px;
+            border: 1px solid #ccc;
+            line-height: 43px;
+            vertical-align: middle;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .pagination .first{
+            background: url(/miniproject/imgsj/btn_paging_first.gif) no-repeat;
+        }
+        .pagination .prev{
+            background: url(/miniproject/imgsj/btn_paging_prev.gif) no-repeat;
+        }
+        .pagination .next{
+            background: url(/miniproject/imgsj/btn_paging_next.gif) no-repeat;
+        }
+        .pagination .last{
+            background: url(/miniproject/imgsj/btn_paging_last.gif) no-repeat;
+        }
+
+        #employee_list{
+            font-size: 13px;
+            box-sizing: border-box;
+        }
+
+        #employee_list tr{
+            
+            box-sizing: border-box;
+            margin-bottom: 100px;           
+        }
+
+        .list_info > td{
+            padding: 10px;
+            border-bottom: 1px solid #cbcbcb;
+            padding: 8px 5px; 
+            height: 29px;
+            line-height: 20px;
+            margin: 0;
+            text-align: center;
+            border-spacing: 0;              
+        }
+        .f_title {
+            width: 440px;
+        }
+        .f_time{
+            width:100px
+        }
+        .num{
+           margin-right: 5px; 
+        }
+        .num1{
+            border: 1px solid #097dd4;
+            background-color: #097dd4;
+            color:white;
+        }
+        .job_select_ {
+            font-size: 12px;
+            margin-left: 50px;
+            font-weight: bold;
+            color: #097dd4;
+        }
+        .region_select_ {
+            font-size: 12px;
+            margin-left: 50px;
+            font-weight: bold;
+            color: #097dd4;
+            
+        }
+
+        .input_career , .input_pay{
+            text-align: right;
+            padding: 0px 10px;
+        }
+
+        
+
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <div id="new_header">
+        <div class="width_fix">
+            <ul id="util">
+                <li><a href="#" class="login_name">박수정님</a></li>
+
+                <li>
+                    <div class="logout">
+                        <a href="#" class="login_title" onclick="move()"></a>
+
+                    </div>
+                </li>
+
+            </ul>
+            <h1 id="logo"><a href="mainpage.html"><img src="img/1001.png" alt="iseoulu 서울일자리포털 로고"></a></h1>
+            <!-- <h1 id="logo">
+                <a href="/"><img src="/www/images/new/common/logo2.gif" alt="iseoulu 서울일자리포털 로고" /></a>
+            </h1> -->
+
+            <script>
+                var urlSearch = new URLSearchParams(location.search);
+                var value = urlSearch.get("code");
+
+                // 4. 토큰발급 받기
+                if (value != null) {
+                    ajax();
+                }
+
+                function ajax() {
+                    var url = "http://127.0.0.1:5502/teamcat/mainpage.html";
+                    var key = "30ac3438a9ac18094045736d44c34af9";
+                    var data = "grant_type=authorization_code" +
+                        "&client_id=" + key +
+                        "&redirect_uri=" + url +
+                        "&code=" + value;
+
+                    // 토큰 요청
+                    fetch('https://kauth.kakao.com/oauth/token', {
+                        method: "post",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8" // 폼형식
+                        }, // form 형식은 키=값&키=값
+                        body: data
+                    }).then(function (response) {
+                        return response.json();
+                    }).then(function (data) {
+                        // 브라우저 종료시에 모두 삭제
+                        // 쿠키 & 세션스토리지에 토큰 값
+                        sessionStorage.setItem("kakao_access", data.access_token)
+
+                        // sdk에 이세스토큰 저장
+                        // Kakao.Auth.setAccessToken(data.access_token);
+
+                        // 사용자 정보 API호출하기
+                        getUser(data.access_token);
+                    });
+                }
+
+                // 5.토큰기반으로 API호출하기 JS으로 처리
+                function getUser(token) {
+                    fetch("https://kapi.kakao.com/v2/user/me", {
+                        method: 'post',
+                        headers: {
+                            'Authorization': 'Bearer ' + token,
+                            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+                        },
+                    }).then(function (response) {
+                        return response.json();
+                    }).then(function (data) {
+                        localStorage.setItem(1, data.properties.nickname);
+                        for(var i = 0; i < 1; i++){
+                            location.reload();
+                        }
+                    })
+                }
+
+                var login_name = document.querySelector(".login_name");
+                var login_title = document.querySelector(".login_title")
+
+                if (localStorage.length === 0) {
+                    login_name.innerHTML = "로그인을해주세요."
+                    login_title.innerHTML = "로그인";
+                } else {
+                    login_name.innerHTML = localStorage.getItem(1) + "님";
+                    login_title.innerHTML = "로그아웃";
+                }
+
+                function move() {
+                    var inner = event.target.innerHTML;
+                    if (inner == "로그인") {
+                        console.log(inner);
+                        location.href = "socialLogin.html";
+                        
+                    } else if (inner == "로그아웃") {
+                        console.log(inner)
+                        localStorage.clear();
+                        location.reload();
+                    }
+                }
+
+            </script>
+
+            <div id="gsearch">
+                <form name="search" action="/www/search/sjpcSearch.jsp" method="post">
+                    <input type="hidden" name="where" value="search">
+                    <input type="hidden" name="startCount" value="0">
+                    <input type="hidden" name="reSearchYn" value="">
+                    <input type="hidden" name="sort" value="">
+                    <input type="hidden" name="sortDiv" value="1">
+                    <input type="hidden" name="queryStack" value="">
+                    <input type="hidden" name="tabMoveYn" value="">
+                    <input type="hidden" name="collection" value="ALL">
+
+                    <fieldset style="padding-top:3px;">
+                        <label for="query">통합검색</label>
+                        <input type="text" name="query" id="query" onkeypress="pressCheck();" value="" title="검색어">
+                        <button type="button" onclick="onSubmit();">검색</button>
+                    </fieldset>
+                </form>
+            </div>
+
+            <ul id="sns">
+                <!-- <li><a href="https://twitter.com/seouliljari" target="_blank"><img src="/www/images/renewal/layout/btn_sns_tw.gif" alt="서울일자리 트위터(새 창)"></a></li> -->
+                <!-- <li><a href="https://blog.naver.com/employmentseoul" class="bsns_blog" title="서울일자리 블로그" target="_blank"><span class="blind">서울일자리 블로그(새 창)</span><img src="/www/images/renewal/layout/btn_sns_blog.png" alt="서울일자리 블로그(새 창)"> </a></li> -->
+                <!-- <li><a href="https://www.facebook.com/seouliljari" class="bsns_facebook" title="서울일자리 페이스북" target="_blank"><span class="blind">서울일자리 페이스북(새 창)</span><img src="/www/images/renewal/layout/btn_sns_fb.png" alt="서울일자리 페이스북(새 창)"></a></li> -->
+                <!-- <li><a href="https://www.youtube.com/channel/UCKPeSRQSMQbZJlik8RnIthw" class="bsns_youtube" title="서울일자리센터 유튜브(서울일자리센터tv,잡아라)" target="_blank"><span class="blind">서울일자리 블로그(새 창)</span><img src="/www/images/renewal/layout/btn_sns_yt.png" alt="서울일자리센터 유튜브(서울일자리센터tv,잡아라)(새 창)"> </a></li> -->
+                <!-- <li><a href="https://blog.daum.net/seouljob" class="bsns_blog" title="서울일자리 블로그" target="_blank"><span class="blind">서울일자리 블로그(새 창)</span><img src="/www/images/renewal/layout/btn_sns_blog.png" alt="서울일자리 블로그(새 창)"> </a></li> -->
+
+                <li><a href="https://blog.naver.com/seouljob" class="bsns_blog" title="서울일자리 블로그"
+                        target="_blank"><span class="blind">서울일자리 블로그(새 창)</span><img src="img/blog_icon.png"
+                            alt="서울일자리 블로그(새 창)"> </a>
+                </li>
+                <li><a href="https://www.facebook.com/seouliljari" class="bsns_facebook" title="서울일자리 페이스북"
+                        target="_blank"><span class="blind">서울일자리 페이스북(새 창)</span><img src="img/facebook_icon.png"
+                            alt="서울일자리 페이스북(새창)"></a></li>
+                <li><a href="https://www.youtube.com/channel/UCKPeSRQSMQbZJlik8RnIthw" class="bsns_youtube"
+                        title="서울일자리센터 유튜브(서울일자리센터tv,잡아라)" target="_blank"><span class="blind">서울일자리 블로그(새
+                            창)</span><img src="img/youtube_icon.png" alt="서울일자리 유튜브(새창)"></a></li>
+            </ul>
+
+        </div>
+        <!-- top메뉴시작 -->
+
+
+
+
+        <div class="gnb_area">
+            <div class="sub_gnbBg" style="overflow: hidden; height: 272px; display: none;"></div>
+            <div id="gnb">
+                <ul>
+                    <li class=""><a href="searchpage.html">채용정보</a>
+                        <div class="sub_gnb" style="overflow: hidden; display: none;">
+                            <ul class="depth2">
+                                <li><a href="searchpage.html">•통합검색</a>
+                                </li>
+                                <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfoList1">•
+                                        지역별</a></li>
+
+
+                                <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfoList50">•
+                                        기업분류별</a></li>
+                                <li><a href="/www/smep/Smep.do?method=selectJobOfferInfoSmep">• 우수중소기업</a></li>
+                                <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfoMini">•
+                                        공공일자리</a></li>
+                                <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfoAlba">•
+                                        아르바이트/파트타임</a></li>
+                                <li><a href="/www/jobfair/jo_info/JobfairJoInfo.do?method=selectFieldInterviewList">•
+                                        자치구 현장면접 박람회</a></li>
+                                <li class="depth"><a href="http://www.stj.or.kr/bbs/board.php?bo_table=branch"
+                                        target="_blank">• 기타 채용정보</a>
+                                    <ul class="depth3" style="display: none;">
+                                        <li><a href="http://www.stj.or.kr/bbs/board.php?bo_table=branch"
+                                                target="_blank">• 서울시택시운송사업조합</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="info bg05" style="height: 232px;">
+                                <dl>
+                                    <dt>채용정보</dt>
+                                    <dd>직종별/지역별/기업분류별/공공일자리/아르바이트 등의 일자리 정보를 제공합니다.</dd>
+                                </dl>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class=""><a href="/www/talent_info/TalentInfo.do?method=selectJobOfferInfo">인재정보</a>
+                        <div class="sub_gnb" style="overflow: hidden; display: none;">
+                            <ul class="depth2">
+                                <li><a href="/www/talent_info/TalentInfo.do?method=selectJobOfferInfo">• 직종별</a>
+                                </li>
+                                <li><a href="/www/talent_info/TalentInfo.do?method=selectJobOfferInfoList1">•
+                                        지역별</a>
+                                </li>
+                                <!-- <li><a href="/www/talent_info/TalentInfo.do?method=selectJobOfferInfoAgeList">• 연령별</a></li>
+                                <li><a href="/www/talent_info/TalentInfo.do?method=selectJobOfferInfoAcdmcrList">• 학력별</a></li> -->
+                            </ul>
+                            <div class="info bg06" style="height: 227px;">
+                                <dl>
+                                    <dt>인재정보</dt>
+                                    <dd>직종별/지역별/기업분류별/공공일자리/아르바이트 등의 채용정보를 제공합니다.</dd>
+                                </dl>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class=""><a href="/www/training/training_guide/training_guide_lst.jsp">교육훈련</a>
+                        <div class="sub_gnb" style="overflow: hidden; display: none;">
+                            <ul class="depth2">
+
+
+                                <li><a
+                                        href="/www/training/center_training/Www_center_edc.do?method=selectWww_center_edcList">•
+                                        센터 교육정보</a></li>
+                                <li><a href="https://www.seoulwomanup.or.kr/womanup/edu/selectProgramPageListAll.do"
+                                        target="_blank">• 여성 교육정보</a></li>
+
+                                <li><a href="/www/job_support_service/tti/tti_introduce.jsp">• 기술교육원</a></li>
+                                <li><a
+                                        href="/www/training/elder_training/Www_elder_edc.do?method=selectWww_elder_edcList">•
+                                        고령자 교육정보</a></li>
+                            </ul>
+                            <div class="info bg03" style="height: 227px;">
+                                <dl>
+                                    <dt>교육훈련</dt>
+                                    <dd>서울시 및 서울시 산하기관에서는 취업교육 및 기술교육등을 지원합니다.</dd>
+                                </dl>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class=""><a
+                            href="/www/custmr_cntr/ntce/WwwNotice.do?method=selectNewsList&amp;noticeCmmnSeNo=3">창업지원</a>
+                        <div class="sub_gnb" style="overflow: hidden; display: none;">
+                            <ul class="depth2">
+                                <li class="depth"><a
+                                        href="/www/custmr_cntr/ntce/WwwNotice.do?method=selectNewsList&amp;noticeCmmnSeNo=3">•
+                                        창업정보</a>
+                                    <ul class="depth3" style="display: none;">
+                                        <li><a
+                                                href="/www/custmr_cntr/ntce/WwwNotice.do?method=selectNewsList&amp;noticeCmmnSeNo=3">•
+                                                창업뉴스</a>
+                                        </li>
+                                        <li><a href="/EstablishInfo.do?method=selectTbSportManProgrmList">• 지원
+                                                프로그램</a>
+                                        </li>
+                                        <li><a href="/EstablishInfo.do?method=selectDataRoomList">• 창업자료실</a>
+                                        </li>
+                                        <li><a href="/EstablishInfo.do?method=selectTbBhrcFntnRecsroomList">•
+                                                신사업아이템</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="depth"><a href="/www/establish/establish_1.jsp">• 창업교육</a>
+                                    <ul class="depth3" style="display: none;">
+                                        <li><a href="/www/establish/establish_1.jsp">• 창업교육</a>
+
+                                        </li>
+                                        <li><a href="/www/establish/establish_2_1_1.jsp">• 온라인 창업교육</a>
+                                        </li>
+                                        <li><a href="/www/establish/establish_2_2_1.jsp">• 오프라인 창업교육</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="depth"><a href="/www/establish/establish-fund_1.jsp">• 창업자금</a>
+                                    <ul class="depth3" style="display: none;">
+                                        <li><a href="/www/establish/establish-fund_1.jsp">• 창업자금</a>
+                                        </li>
+                                        <li><a href="/www/establish/establish-fund_2_1.jsp">• 서울신용보증재단</a></li>
+                                        <li><a href="/www/establish/establish-fund_3.jsp">• 서울형 마이크로크레딧</a></li>
+                                    </ul>
+                                </li>
+                                <!-- 								<li><a href="/www/establish/establish-care_2_1.jsp">• 창업보육센터</a> -->
+
+
+
+
+                                <!-- 								</li> -->
+
+                                <li><a href="/www/job_support_service/se/seguide.jsp">• 사회적경제</a></li>
+                            </ul>
+                            <div class="info bg07" style="height: 227px;">
+                                <dl>
+                                    <dt>창업지원</dt>
+                                    <dd>창업을 준비하는 시민에게 창업관련 정보와 정책정보를 제공합니다.</dd>
+                                </dl>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class=""><a href="/www/job_support_service/policy/job_youngman_plcy.jsp">일자리서비스</a>
+                        <div class="sub_gnb" style="overflow: hidden; display: none;">
+                            <ul class="depth2">
+                                <li class="depth"><a href="/www/job_support_service/policy/job_youngman_plcy.jsp">•
+                                        청년
+                                        일자리</a>
+                                    <ul class="depth3" style="display: none;">
+                                        <li><a href="/www/job_support_service/policy/job_youngman_plcy.jsp">• 청년
+                                                일자리</a>
+                                        </li>
+                                        <li><a href="/www/jobCafe/jobCafe.do?method=getCafeMain">• 일자리 카페/청년 활력소</a>
+                                        </li>
+                                        <li><a
+                                                href="/www/add_service/openChothesChest.do?method=selectOpenChothesChest">•
+                                                취업날개 서비스</a></li>
+                                        <li><a
+                                                href="/www/newdeal/jbhnt_mngr/newDealJbhntMngrWww.do?method=getNewDealMain">•
+                                                뉴딜일자리</a></li>
+                                        <li><a href="/www/job_support_service/policy/job_mentoschool.jsp">• 매칭강화
+                                                전담창구</a></li>
+                                        <li><a href="/www/job_support_service/policy/job_intern.jsp">• 청년인턴 직무캠프</a>
+                                        </li>
+                                        <!-- 										<li><a href="/www/addservice/alba_delay_payment.jsp">• 아르바이트 임금체불</a></li> -->
+
+
+                                    </ul>
+                                </li>
+                                <li><a href="/www/job_support_service/policy/job_woman_plcy.jsp">• 여성 일자리</a></li>
+                                <li><a href="/www/job_support_service/policy/job_50plus_plcy.jsp">• 중장년 일자리</a></li>
+                                <li><a href="/www/job_support_service/policy/job_noin_plcy.jsp">• 어르신 일자리</a></li>
+                                <li><a href="/www/job_support_service/policy/job_homeless_plcy.jsp">• 노숙인 일자리</a>
+                                </li>
+                                <li><a href="/www/job_support_service/policy/job_disability.jsp">• 장애인 일자리</a></li>
+                                <!--  								<li class="depth"><a href="/www/job_support_service/labor/life_pay.jsp">• 서울시 노동정책</a>
+                                    <ul class="depth3">
+                                        <li><a href="/www/job_support_service/labor/life_pay.jsp">• 생활임금</a></li>
+                                        <li><a href="/www/job_support_service/labor/regular.jsp">• 비정규직 정규직 전환</a></li>
+                                        <li><a href="/www/job_support_service/labor/regular2.jsp">• 시민명예노동옴부즈만</a></li>
+                                        <li><a href="/www/job_support_service/labor/regular3.jsp">• 노동권리보호관 제도</a></li>
+                                        <li><a href="/www/job_support_service/labor/seoullaboracademy.jsp">• 서울노동아카데미</a></li>
+                                        <li><a href="/www/job_support_service/labor/protection.jsp">• 감정노동종사자 권리보호</a></li>
+                                        <li><a href="/www/job_support_service/labor/townlabor.jsp">• 마을노무사 제도</a></li>										
+                                    </ul>
+                                </li> -->
+                            </ul>
+                            <div class="info bg01" style="height: 227px;">
+                                <dl>
+                                    <dt>일자리서비스</dt>
+                                    <dd>청년, 여성, 어르신, 노숙인, 장애인을위한 서울시 일자리 서비스를 확인하세요.</dd>
+                                </dl>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+
+                    <li class=""><a
+                            href="/www/custmr_cntr/ntce/WwwNotice.do?method=selectWwwNoticeList&amp;noticeCmmnSeNo=2">일자리뉴스</a>
+                        <div class="sub_gnb" style="overflow: hidden; display: none;">
+                            <ul class="depth2">
+                                <li><a
+                                        href="/www/custmr_cntr/ntce/WwwNotice.do?method=selectWwwNoticeList&amp;noticeCmmnSeNo=2">•
+                                        일자리 소식</a></li>
+
+                                <li><a href="/www/emp_info_room/emp_network/emp_network_lst.jsp">• 취업정보 사이트</a></li>
+                                <li><a href="/www/emp_info_room/emp_guide_list/resume_lst.jsp">• 이력서 작성 가이드</a></li>
+                                <li><a
+                                        href="/www/emp_info_room/emp_suc_case/EmpymnRecsroom.do?method=selectEmpymnKnowhowList">•
+                                        취업창업 노하우</a></li>
+
+                            </ul>
+                            <div class="info bg01" style="height: 227px;">
+                                <dl>
+                                    <dt>일자리 뉴스</dt>
+                                    <dd>일자리 관련 뉴스/소식, 취업사이트, 취업창업 노하우 등 정보를 제공합니다.</dd>
+                                </dl>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class=""><a href="/www/smep/Smep.do?method=selectSmepMain">우수중소기업</a>
+                        <div class="sub_gnb" style="overflow: hidden; display: none;">
+                            <ul class="depth2">
+                                <li><a href="/www/smep/Smep.do?method=selectSscList">• 서울형 강소기업</a></li>
+                                <li><a href="/www/smep/Smep.do?method=selectSrcList">• 하이서울브랜드 기업</a></li>
+                                <!--  								<li><a href="/www/smep/Smep.do?method=selectSjcList">• 일자리창출 기업</a></li> -->
+                                <li class="depth"><a href="/www/smep/Smep.do?method=selectSmepMain">• 기타 우수기업</a>
+                                    <ul class="depth3" style="display: none;">
+                                        <li><a href="http://www.work.go.kr/smallGiants/smallGiantsMain.do"
+                                                target="_blank">• 워크넷 강소기업</a></li>
+                                        <li><a href="http://www.saramin.co.kr/zf_user/certified-company/hidden-star-company"
+                                                target="_blank">• 히든스타기업(사람인)</a></li>
+                                        <li><a href="http://www.jobkorea.co.kr/Theme/Main" target="_blank">•
+                                                전문채용관(잡코리아)</a></li>
+                                        <li><a href="http://job.incruit.com/jobdb_list/searchjob.asp?ct=31&amp;ty=1&amp;cd=1"
+                                                target="_blank">• 우수기업인증관(인크루트)</a></li>
+                                        <li><a href="http://www.career.co.kr/kangso/jobing.asp" target="_blank">•
+                                                중견/강소기업(커리어)</a></li>
+                                        <li><a href="http://www.career.co.kr/hdchamp/jobing.asp" target="_blank">•
+                                                히든챔피언(커리어)</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/www/smep/Smep.do?method=selectRctList">• 우수중소기업 채용정보</a></li>
+                                <!-- 								<li><a href="/www/smep/Smep.do?method=selectRptList">• 기업탐방</a></li> -->
+                                <li><a href="http://www.seouljobnow.co.kr/bbs/board.php?bo_table=interview"
+                                        target="_blank">• 기업탐방</a></li>
+                                <li></li>
+                            </ul>
+                            <div class="info bg04" style="height: 227px;">
+                                <dl>
+                                    <dt>우수 중소기업</dt>
+                                    <dd>서울형강소기업/워크넷강소기업 등 우수한 중소기업 정보를 제공합니다.</dd>
+                                </dl>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+                </ul>
+
+                <a href="javascript:alert('개인회원으로 로그인을 하셔야 이용가능합니다');" class="help_job"><span
+                        class="blind">구직등록</span></a>
+
+
+                <a href="/EntJobOfferReq.do?method=retrieveJobOfferGuide" class="help_worker"><span
+                        class="blind">구인등록</span></a>
+
+            </div>
+        </div>
+        <!-- top메뉴종료 -->
+    </div>
+
+    <div id="content">
+        <h2 class="head_tag">채용정보</h2>
+        <tbody>
+            <table class="tb_search">
+
+                <tr>
+                    <th scope="row"><label>직종</label></th> <!--JOBCODE_NM-->
+                    <td>
+                        <select class="job_select">
+                            <option>전체</option>
+                            <option>청소원</option>
+                            <option>요양보호사</option>
+                            <option>조리사</option>
+                            <option>보육교사</option>
+                            <option>사무원</option>
+                            <option>미화원</option>
+                            <option>조리보조</option>
+                            <option>안내원</option>
+                        </select>
+                        <span class="job_select_"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label>근무지역(서울)</label></th> <!-- MNGR_INSTT_NM   WORK_PARAR_BASS_ADRES_CN  -->
+                    <td>
+                        <select class="region_select">
+                            <option>전체</option>
+                            <option>강남구</option>
+                            <option>강동구</option>
+                            <option>강서구</option>
+                            <option>관악구</option>
+                            <option>광진구</option>
+                            <option>구로구</option>
+                            <option>금천구</option>
+                            <option>노원구</option>
+                            <option>도봉구</option>
+                            <option>동대문구</option>
+                            <option>동작구</option>
+                            <option>마포구</option>
+                            <option>서대문구</option>
+                            <option>서초구</option>
+                            <option>송파구</option>
+                            <option>양천구</option>
+                        </select>
+                        <span class="region_select_"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label>근무형태</label></th> <!-- EMPLYM_STLE_CMMN_MM-->
+                    <td class = "condition">
+                        <input type="checkbox" class="all_check"> 전체
+                        <input type="checkbox"> 상용직
+                        <input type="checkbox"> 일용직
+                        <input type="checkbox"> 정규직
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label>학력</label></th> <!--ACDMCR_NM-->
+                    <td class = "edu">
+                        <input type="checkbox" class="all_check"> 전체
+                        <input type="checkbox"> 초졸이하
+                        <input type="checkbox"> 중학교
+                        <input type="checkbox"> 고등학교
+                        <input type="checkbox"> 전문대학
+                        <input type="checkbox"> 대학_대학교
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label>경력</label></th> <!-- CAREER_CND_NM-->
+                    <td class = "career">
+                        <input type="checkbox" class="all_check"> 전체
+                        <input type="checkbox"> 무관
+                        <input type="checkbox"> 신입
+                        <input type="checkbox" class= "career_y"> 경력
+                        <input type="text" class="input_career" disabled = "disabled" >년 ~
+                        <input type="text" class="input_career" disabled = "disabled"  >년
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"><label>급여</label></th> <!--HOPE_WAGE-->
+                    <td class="pay">
+                        <div class="pay_items">
+                            <input type="checkbox" class="all_check">무관
+                            <input type="checkbox"> 연봉
+                            <input type="checkbox"> 월급
+                            <input type="checkbox"> 일급
+                            <input type="checkbox"> 시급
+                        </div>
+
+                        최저금액 <input type="text" class="input_pay" disabled="disabled" > (만)원 ~ 최고금액
+                        <input type="text" class="input_pay" disabled="disabled">만(원)
+                    </td>
+                </tr>
+            </table>
+
+        </tbody>
+
+        <div class="search_btn_">
+            <button class="search_btn">입력한 조건으로 검색</button>
+        </div>
+
+        <h3 class="tit1"> 채용정보</h3>
+        <div class = "tb_list_">
+            <table class = "tb_list">
+                <thead>
+                    <tr>
+                        <th scope = "col">기업명</th> <!--CMPNY_NM-->
+                        <th scope = "col" class= "f_title">구인제목/모집요강</th> <!--DTY_CN-->
+                        <th scope = "col">근무요일</th> <!--HOLIDAY_NM-->
+                        <th scope = "col" class = "f_time">근무시간</th> <!--WORK_TIME_NM-->
+                        <th scope = "col">근무장소</th> <!--WORK_PARAR_BASS_ADRES_CN-->
+                    </tr>
+                </thead>
+                <tbody id = "employee_list">
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class = "pagination">
+            <a class="direction first"><img src="img/left2.gif" alt="">처음</a>
+            <a class="direction prev"><img src="img/left.gif" alt="">이전</a>
+         
+            <a class ="direction next"><img src="img/right.gif" alt="">다음</a>
+            <a class = "direction last"><img src="img/right2.gif" alt="">끝</a>
+
+        </div>
+        
+    </div>
+
+    <script>
+        var job_select = document.querySelector('.job_select');
+        var job_select_ = document.querySelector('.job_select_');
+        var region_select = document.querySelector('.region_select');
+        var region_select_ = document.querySelector('.region_select_');
+        job_select.onchange = function(){
+            
+            if(job_select.value!='전체'){
+                job_select_.innerHTML = '선택 : '+job_select.value;
+            }
+        }
+        region_select.onchange = function(){
+            if(region_select.value!='전체'){
+                region_select_.innerHTML = '선택 : '+region_select.value;
+            }
+        }
+
+    </script>
+
+    <script>
+
+        var key = '61426f707465736336386261637372';
+        var type = 'json';
+        var service = 'GetJobInfo';
+        var startIndex = 0;
+        var endIndex = 199;
+
+        var url = 'http://openapi.seoul.go.kr:8088/' + key + '/json/' + service + '/' + startIndex + '/' + endIndex + '/';
+        var row = new Array();
+        fetch(url)
+        .then(function (response) {
+            console.log(response);
+            return response.json();
+        })
+        .then(function (data) {
+
+            var info = data.GetJobInfo;
+            var row2 = data.GetJobInfo['row'];
+            for(var i = 0 ; i < row2.length ; i++){
+                row.push(row2[i]);
+            }
+            initial(row , 0);
+
+        });
+
+        
+
+
+
+
+
+
+        var employee_list = document.getElementById('employee_list');
+        var pagination = document.querySelector('.pagination');
+
+        function initial(row, count){    
+
+            //for(var i = 0 ; i < row.length; i++){
+            //console.log(row[i]['JOBCODE_NM'],row[i]['MNGR_INSTT_NM']);
+            //}
+            for(var i = 0 ; i < row.length ; i++){
+                var tr = document.createElement('tr');
+                tr.classList.add("list_info");
+                var td = document.createElement('td');
+                var td2 = document.createElement('td');
+                var td3 = document.createElement('td');
+                var td4 = document.createElement('td');
+                var td5 = document.createElement('td');
+                td.scope = 'col';
+                td2.scope = 'col';
+                td3.scope = 'col';
+                td4.scope = 'col';
+                td5.scope = 'col';
+
+                td.innerHTML = row[i]['CMPNY_NM'];
+                td2.innerHTML = row[i]['DTY_CN'];
+                td3.innerHTML = (row[i]['HOLIDAY_NM']).replace('근무','');
+                td4.innerHTML = row[i]['WORK_TIME_NM'];
+                td5.innerHTML = row[i]['WORK_PARAR_BASS_ADRES_CN'];
+
+                tr.appendChild(td);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                if(i<count||i>count+9){
+                    tr.style.display = 'none';
+                }
+                
+                employee_list.appendChild(tr);
+                //<a href ="#" class="num num1">1</a>
+            }          
+            num_list();
+        }
+
+        function num_list(){
+            var a = 0;
+            if(row.length%10!=0){
+                a = row.length/10+1;
+            }else{
+                a = row.length/10;
+            }
+            var next = document.querySelector('.next');
+            for(var i = 1 ; i <= a ; i++){
+                var a_tag = document.createElement('a');
+                a_tag.classList.add('num');
+                a_tag.classList.add('num'+i);
+                if(i==1) a_tag.classList.add('this');
+                a_tag.innerHTML = ''+i ;
+
+                a_tag.onclick = load_list;    
+                if(i>10){
+                    a_tag.style.display = 'none';
+                }
+                pagination.insertBefore(a_tag,next);
+            }
+        }
+
+        function load_list(){
+        
+            var list = document.querySelectorAll('.pagination .num');
+            for(var i = 0 ; i < list.length ; i++){
+                list[i].style.backgroundColor = 'white';
+                list[i].style.color = 'black';
+                list[i].style.border= '1px solid #ccc';
+                if(list[i].classList.contains('this')){
+                    list[i].classList.remove('this');
+                }
+            }
+            event.target.classList.add('this');
+            event.target.style.backgroundColor = '#097dd4';
+            event.target.style.color = 'white';
+            event.target.style.border = '1px solid #097dd4';
+
+            var num_w = parseInt(event.target.classList['1'].replace('num',''))-1;            
+            var employee_list2 = document.querySelectorAll('.list_info');
+            
+            for(var i =0 ; i < employee_list2.length ; i++){
+                employee_list2[i].style.display = 'none';
+                if(i>=num_w*10 && i<=num_w*10+9){
+                    employee_list2[i].style.display = '';
+                }
+            }
+        }
+
+        var page_first = document.querySelector('.pagination > .first');
+
+
+        page_first.onclick = function(){
+
+            var list = document.querySelectorAll('.pagination .num');
+            for(var i = 0 ; i < list.length ; i++){
+                list[i].style.backgroundColor = 'white';
+                list[i].style.color = 'black';
+                list[i].style.border= '1px solid #ccc';
+                list[i].style.display = 'none';
+                if(list[i].classList.contains('this')){
+                    list[i].classList.remove('this');
+                }
+                if(i>=0&&i<10){
+                    list[i].style.display = '';
+                }
+            }
+            list[0].classList.add('this');
+            list[0].style.backgroundColor = '#097dd4';
+            list[0].style.color = 'white';
+            list[0].style.border = '1px solid #097dd4';
+            var employee_list2 = document.querySelectorAll('.list_info');
+            
+            for(var i =0 ; i < employee_list2.length ; i++){
+                employee_list2[i].style.display = 'none';
+                if(i>=0&& i<=9){
+                    employee_list2[i].style.display = '';
+                }
+            }
+        }
+
+        var page_prev = document.querySelector('.pagination > .prev');
+
+        
+        page_prev.onclick = function(){
+            var list = document.querySelectorAll('.pagination .num');
+            var count = 0;
+            for(var i = 0 ; i < list.length ; i++){
+                if(list[i].classList.contains('this')&&i>0){
+                    count=i-1;
+                    list[i].classList.remove('this');
+                    list[i].style.backgroundColor = 'white';
+                    list[i].style.color = 'black';
+                    list[i].style.border= '1px solid #ccc';
+                    list[i-1].classList.add('this');
+                    list[i-1].style.backgroundColor = '#097dd4';
+                    list[i-1].style.color = 'white';
+                    list[i-1].style.border = '1px solid #097dd4';
+                    
+                    var employee_list2 = document.querySelectorAll('.list_info');
+                    if(i==10){
+                        for(var j = i ; j <=i+9 ;j++){
+                            list[j].style.display = 'none';
+                        }
+                        for(var j = 0 ; j <10 ;j++){
+                            list[j].style.display = '';
+                        }
+                        for(var i =0 ; i < employee_list2.length ; i++){
+                            employee_list2[i].style.display = 'none';
+                            if(i>=count*10 &&i<=count*10+9){
+                                employee_list2[i].style.display = '';
+                            }
+                        }
+                        return;
+                    }
+                    for(var i =0 ; i < employee_list2.length ; i++){
+                    employee_list2[i].style.display = 'none';
+                        if(i>=count*10 &&i<=count*10+9){
+                            employee_list2[i].style.display = '';
+                        }
+                    }
+                    return;
+                }
+            }          
+                        Swal.fire({
+                            icon: 'error',
+                            text: '첫번째 페이지 입니다',
+
+                    })           
+        
+        }
+        var page_next = document.querySelector('.pagination > .next');
+
+
+        page_next.onclick = function(){
+            var list = document.querySelectorAll('.pagination .num');
+            var count = 0;
+            for(var i = 0 ; i < list.length ; i++){
+                if(list[i].classList.contains('this')&&i<9){
+                    count=i+1;
+                    list[i].classList.remove('this');
+                    list[i].style.backgroundColor = 'white';
+                    list[i].style.color = 'black';
+                    list[i].style.border= '1px solid #ccc';
+                    list[i+1].classList.add('this');
+                    list[i+1].style.backgroundColor = '#097dd4';
+                    list[i+1].style.color = 'white';
+                    list[i+1].style.border = '1px solid #097dd4';
+                    var employee_list2 = document.querySelectorAll('.list_info');
+                    
+                    for(var j =0 ; j < employee_list2.length ; j++){
+                    employee_list2[j].style.display = 'none';
+                        if(j>=count*10 &&j<=count*10+9){
+                            employee_list2[j].style.display = '';
+                        }
+                    }
+                    return;
+                }else if(list[i].classList.contains('this')&&i==9){
+                    for(var j = 0 ; j<= i ; j++){
+                        list[j].style.display='none';
+                    }
+                    count=i+1;
+                    console.log(count); // 10
+                    list[i].classList.remove('this');
+                    list[i].style.backgroundColor = 'white';
+                    list[i].style.color = 'black';
+                    list[i].style.border= '1px solid #ccc';
+                    list[i+1].classList.add('this');
+                    list[i+1].style.backgroundColor = '#097dd4';
+                    list[i+1].style.color = 'white';
+                    list[i+1].style.border= '1px solid #097dd4';
+                    var employee_list2 = document.querySelectorAll('.list_info');
+                    for(var j = i+1;j<=i+10; j++){
+                        list[j].style.display = '';
+                }
+                for(var j =0 ; j < employee_list2.length ; j++){
+                    employee_list2[j].style.display = 'none';
+                        if(j>=count*10 &&j<=count*10+9){
+                            employee_list2[j].style.display = '';
+                        }
+                    }
+                    return;
+                }else if(list[i].classList.contains('this')&&i>=10&&i<19){
+                    
+                    count=i+1;
+                    list[i].classList.remove('this');
+                    list[i].style.backgroundColor = 'white';
+                    list[i].style.color = 'black';
+                    list[i].style.border= '1px solid #ccc';
+                    list[i+1].classList.add('this');
+                    list[i+1].style.backgroundColor = '#097dd4';
+                    list[i+1].style.color = 'white';
+                    list[i+1].style.border= '1px solid #097dd4';
+                    var employee_list2 = document.querySelectorAll('.list_info');
+                    
+                for(var j =0 ; j < employee_list2.length ; j++){
+                    employee_list2[j].style.display = 'none';
+                        if(j>=count*10 &&j<=count*10+9){
+                            employee_list2[j].style.display = '';
+                        }
+                    }
+                    return;
+                }else if(list[i].classList.contains('this')&&i==19){
+
+                    Swal.fire({
+                            icon: 'error',
+                            text: '마지막 페이지 입니다',
+
+                    })    
+
+                }
+            }                
+        
+
+        }
+
+        var page_last = document.querySelector('.pagination > .last');
+
+        page_last.onclick = function(){
+            var list = document.querySelectorAll('.pagination .num');
+            for(var i = 0 ; i < list.length ; i++){
+                if(i>10&&i<20){
+                    list[i].style.display='';
+                }else{
+                    list[i].style.display = 'none'
+                }
+                if(list[i].classList.contains('this')){
+                    list[i].classList.remove('this');
+                }
+                if(i==19){
+                    list[i].classList.add('this');
+                    list[i].style.backgroundColor = '#097dd4';
+                    list[i].style.color = 'white';
+                    list[i].style.border= '1px solid #097dd4';
+                }
+            }
+            count = 19;
+            var employee_list2 = document.querySelectorAll('.list_info');
+                    
+                for(var j =0 ; j < employee_list2.length ; j++){
+                    employee_list2[j].style.display = 'none';
+                        if(j>=count*10 &&j<count*10+9){
+                            employee_list2[j].style.display = '';
+                        }
+                    }
+                    return;
+
+        }
+    </script>
+
+    <script>
+        var all_check = document.querySelector('.condition .all_check');
+        var condition = document.querySelector(".condition");
+        condition.onclick = function(){
+            if(event.target.classList.contains('all_check')){
+                return
+            }else{
+                var checke = document.querySelectorAll('.condition input[type=checkbox]');
+                all_check.checked =false;                
+            }
+        }
+        all_check.onclick = function(){
+            if(!all_check.classList.contains('check')){
+                var checke = document.querySelectorAll('.condition input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = true;
+                }
+                all_check.classList.add('check');
+            }else{
+                all_check.classList.remove('check');
+                var checke = document.querySelectorAll('.condition input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = false;
+                }
+            }
+        }
+
+        var edu = document.querySelector(".edu");
+        var all_check2 = document.querySelector(".edu .all_check");
+        edu.onclick = function(){
+            if(event.target.classList.contains('all_check')||event.target.classList.contains('input_career')){
+                return
+            }else{
+                var checke = document.querySelectorAll('.edu input[type=checkbox]');
+                all_check2.checked =false;                
+            }
+        }
+        all_check2.onclick = function(){
+            if(!all_check2.classList.contains('check')){
+                var checke = document.querySelectorAll('.edu input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = true;
+                }
+                all_check2.classList.add('check');
+            }else{
+                all_check2.classList.remove('check');
+                var checke = document.querySelectorAll('.edu input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = false;
+                }
+            }
+        }
+        var career = document.querySelector(".career");
+        var all_check3 = document.querySelector(".career .all_check");
+        career.onclick = function(){
+            if(event.target.classList.contains('all_check')||event.target.classList.contains('input_career')){
+                return
+            }else{
+                var checke = document.querySelectorAll('.career input[type=checkbox]');
+                all_check3.checked =false;                
+            }
+        }
+        all_check3.onclick = function(){
+            if(!all_check3.classList.contains('check')){
+                var checke = document.querySelectorAll('.career input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = true;                    
+                }
+                all_check3.classList.add('check');
+            }else{
+                all_check3.classList.remove('check');
+                var checke = document.querySelectorAll('.career input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = false;
+                }
+            }
+        }
+        var career_y = document.querySelector('.career_y');
+        var input_career = document.querySelectorAll('.input_career');
+        career_y.onclick = function(){
+            if(career_y.checked){
+                for(var i = 0 ; i < input_career.length;i++){
+                    input_career[i].disabled = '';
+                }
+                
+            }else{
+                
+                for(var i = 0 ; i < input_career.length;i++){
+                    input_career[i].disabled = 'disabled';
+                }
+
+            }
+            
+        }
+
+        
+        var pay_items = document.querySelector(".pay_items");
+        var all_check4 = document.querySelector(".pay_items .all_check");
+        var input_pay = document.querySelectorAll('.input_pay');
+        pay_items.onclick = function(){
+            if(event.target.classList.contains('all_check')){
+                return
+            }else{
+                all_check4.checked =false;
+                var checke = document.querySelectorAll('.pay_items input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    if(checke[i].checked){
+                        for(var i = 0 ; i < input_pay.length;i++){
+                        input_pay[i].disabled = '';
+                        }
+                        return;
+                    }
+                }
+                               
+            }
+        }
+        all_check4.onclick = function(){
+            if(!all_check4.classList.contains('check')){
+                var checke = document.querySelectorAll('.pay_items input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = true;                    
+                }
+                for(var i = 0 ; i < input_pay.length;i++){
+                    input_pay[i].disabled = 'disabled';
+                }
+                all_check4.classList.add('check');
+            }else{
+                all_check4.classList.remove('check');
+                var checke = document.querySelectorAll('.pay_items input[type=checkbox]');
+                for(var i = 0 ; i < checke.length ; i++){
+                    checke[i].checked = false;
+                }
+                for(var i = 0 ; i < input_pay.length;i++){
+                    input_pay[i].disabled = '';
+                }
+            }
+        }
+       
+       
+       
+
+    </script>
+
+    <!-- footer -->
+     <!-- footer -->
+        
+     <div id="footer">
+        <div id="ft_top">
+
+            <ul>
+                <li><a href="/www/r_privacy.jsp" style="color:#FFFF78;">개인정보 처리방침</a></li>
+                <li><a href="/www/r_stipul_pop.jsp">이용약관</a></li>
+                <li><a href="javascript:bottomPop('/www/noReceptionEmail.jsp','540', '300');" title="새 창">이메일 무단 수집
+                        거부</a></li>
+                <!-- <li><a href="/www/map.jsp">찾아오시는 길</a></li> -->
+                <li><a href="http://minwon.moel.go.kr/minwon2008/lc_minwon/lc_form_apply.do" target="_blank">임금 체불
+                        신고</a></li>
+                <li><a href="http://www.moel.go.kr/info/defaulter/defaulterList.do" target="_blank">체불 사업주 명단 공개</a>
+                </li>
+                <li><a href="http://minwon.moel.go.kr/minwon2008/info/info_faq_typeC.jsp" target="_blank">아르바이트 피해
+                        민원신청</a></li>
+            </ul>
+            <p>서울 강남구 테헤란로7길 7 에스코빌딩 6~7층</p>
+            <p>구인/구직/교육/상담 02-561-1911 </p>
+            <div id="logo_btm3" style="position: absolute;right:600px;width:100px;top:30px;">
+
+            </div>
+            <div id="logo_btm2" style="position: absolute;right:480px;width:100px;top:30px;">
+
+            </div>
+        </div>
+
+        <div class="ft_copy">
+            ©2023. choongang Metropolitan Government all rights reserved.
+        </div>
+
+    </div>
+
+
+
+
+    <div id="fatkun-drop-panel">
+        <a id="fatkun-drop-panel-close-btn">×</a>
+        <div id="fatkun-drop-panel-inner">
+            <div class="fatkun-content">
+                <svg class="fatkun-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    p-id="5892">
+                    <path
+                        d="M494.933333 782.933333c2.133333 2.133333 4.266667 4.266667 8.533334 6.4h8.533333c6.4 0 10.666667-2.133333 14.933333-6.4l2.133334-2.133333 275.2-275.2c8.533333-8.533333 8.533333-21.333333 0-29.866667-8.533333-8.533333-21.333333-8.533333-29.866667 0L533.333333 716.8V128c0-12.8-8.533333-21.333333-21.333333-21.333333s-21.333333 8.533333-21.333333 21.333333v588.8L249.6 475.733333c-8.533333-8.533333-21.333333-8.533333-29.866667 0-8.533333 8.533333-8.533333 21.333333 0 29.866667l275.2 277.333333zM853.333333 874.666667H172.8c-12.8 0-21.333333 8.533333-21.333333 21.333333s8.533333 21.333333 21.333333 21.333333H853.333333c12.8 0 21.333333-8.533333 21.333334-21.333333s-10.666667-21.333333-21.333334-21.333333z"
+                        p-id="5893"></path>
+                </svg>
+                <div class="fatkun-title">Drag and Drop</div>
+                <div class="fatkun-desc">The image will be downloaded</div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

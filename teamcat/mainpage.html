@@ -29,39 +29,41 @@
 <body>
 
     <body>
+        <script>
+            var arr = document.cookie.split("; ");
+            if (arr.length !== 0) {
+                var hasTeamcat = false;
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i].indexOf("teamcat=") !== -1) {
+                        hasTeamcat = true;
+                        break;
+                    }
+                }
+                if (!hasTeamcat) {
+                    window.open("pop.html", "popup", "width=580px, height=350px, top=300px, left=3100px");
+                }
+            }
+
+
+
+
+
+        </script>
 
         <div id="new_header">
-
             <div class="width_fix">
                 <ul id="util">
-
-
-                    <li><a href="/EntInfoManage.do?method=retrieveEnterpriseInfoMain" class="login_name">박수정님</a></li>
+                    <li><a href="#" class="login_name">박수정님</a></li>
 
                     <li>
                         <div class="logout">
-                            <a href="socialLogin.html" class="login_title">로그인</a>
-                            <!-- 로그아웃 타이머 표시 영역 -->
-                            <span class="login_timer" id="counterLogOutTimer">24:08</span><span class="login_extension"
-                                id="counterLogOutTimerBtn" style="cursor:pointer;" onclick="javascript:counter_reset();"
-                                alt="시간연장">연장</span>
+                            <a href="#" class="login_title" onclick="move()"></a>
+
                         </div>
                     </li>
 
-                    <li><a href="/EntInfoManage.do?method=retrieveEnterpriseInfoMain">기업서비스</a></li>
-
-
-
-
-                    <li><a href="/www/jobfair/jo_info/JobfairJoInfo.do?method=selectFieldInterviewList">박람회</a></li>
-
-                    <li><a
-                            href="/www/custmr_cntr/ntce/WwwNotice.do?method=selectWwwNoticeList&amp;noticeCmmnSeNo=1">고객센터</a>
-                    </li>
-                    <li><a href="/www/site_map.jsp">사이트맵</a></li>
-
                 </ul>
-                <h1 id="logo"><a href="/"><img src="img/1001.png" alt="iseoulu 서울일자리포털 로고"></a></h1>
+                <h1 id="logo"><a href="mainpage.html"><img src="img/1001.png" alt="iseoulu 서울일자리포털 로고"></a></h1>
                 <!-- <h1 id="logo">
                     <a href="/"><img src="/www/images/new/common/logo2.gif" alt="iseoulu 서울일자리포털 로고" /></a>
                 </h1> -->
@@ -117,13 +119,16 @@
                             return response.json();
                         }).then(function (data) {
                             localStorage.setItem(1, data.properties.nickname);
+                            for (var i = 0; i < 1; i++) {
+                                location.reload();
+                            }
                         })
                     }
 
                     var login_name = document.querySelector(".login_name");
                     var login_title = document.querySelector(".login_title")
 
-                    if(localStorage.length === 0){
+                    if (localStorage.length === 0) {
                         login_name.innerHTML = "로그인을해주세요."
                         login_title.innerHTML = "로그인";
                     } else {
@@ -131,7 +136,18 @@
                         login_title.innerHTML = "로그아웃";
                     }
 
+                    function move() {
+                        var inner = event.target.innerHTML;
+                        if (inner == "로그인") {
+                            console.log(inner);
+                            location.href = "socialLogin.html";
 
+                        } else if (inner == "로그아웃") {
+                            console.log(inner)
+                            localStorage.clear();
+                            location.reload();
+                        }
+                    }
 
                 </script>
 
@@ -183,10 +199,10 @@
                 <div class="sub_gnbBg" style="overflow: hidden; height: 272px; display: none;"></div>
                 <div id="gnb">
                     <ul>
-                        <li class=""><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfo">채용정보</a>
+                        <li class=""><a href="searchpage.html">채용정보</a>
                             <div class="sub_gnb" style="overflow: hidden; display: none;">
                                 <ul class="depth2">
-                                    <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfo">•
+                                    <li><a href="searchpage.html">•
                                             통합검색</a>
                                     </li>
                                     <li><a href="/www/job_offer_info/JobOfferInfo.do?method=selectJobOfferInfoList1">•
@@ -446,7 +462,7 @@
 
                     </ul>
 
-                    <a href="javascript:alert('개인회원으로 로그인을 하셔야 이용가능합니다');" class="help_job"><span
+                    <a href="present.html" class="help_job"><span
                             class="blind">구직등록</span></a>
 
 
@@ -541,6 +557,9 @@
             </div>
 
         </div>
+
+        <!-- footer -->
+
         <div id="footer">
             <div id="ft_top">
 
@@ -591,7 +610,85 @@
                 </div>
             </div>
         </div>
+
+        <div class="pop_banner_box">
+            <div class="pop_banner_mid">
+                <ul class="pop_banner_list"
+                    style="/* border-radius: 10px 10px 0 0; */ height: 10px; background-color: #1887a9;">
+                    <li></li>
+                </ul>
+                <ul class="pop_banner_list">
+                    <a href="searchpage.html">채용정보</a>
+                </ul>
+                <ul class="pop_banner_list">
+                    <a href="">구직안내</a>
+                </ul>
+                <ul class="pop_banner_list">
+                    <a>Q&A</a>
+                    <hr>
+                </ul>
+                <ul class="pop_banner_list">
+                    <a>문의하기</a>
+                </ul>
+                <ul class="pop_banner_list"
+                    style="/* border-radius: 0 0 10px 10px; */ height: 10px; background-color: #1887a9;">
+                    <li></li>
+                </ul>
+            </div>
+            <div class="top_btn_box">
+                <button class="top_btn">TOP</button>
+            </div>
+        </div>
+
+        <style>
+            .pop_banner_box {
+                width: 130px;
+                position: fixed;
+                top: 400px;
+                right: 100px;
+            }
+
+            .pop_banner_box .pop_banner_mid {
+                padding: 0 15px;
+            }
+
+            .pop_banner_box .pop_banner_mid .pop_banner_list {
+                border: 1px solid #fffdfd;
+                font-size: 14px;
+                height: 30px;
+                text-align: center;
+                line-height: 30px;
+                background-color: rgb(244, 241, 241);
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12),
+                    0 2px 2px rgba(50, 50, 50, 0.12),
+                    0 4px 4px rgba(65, 65, 65, 0.12),
+                    0 8px 8px rgba(53, 53, 53, 0.12),
+                    0 16px 16px rgba(83, 82, 82, 0.12);
+            }
+
+            .pop_banner_box .pop_banner_mid .pop_banner_list>a:hover {
+                text-decoration: none;
+                color: rgb(111, 111, 135);
+                font-weight: 12px;
+            }
+
+            .pop_banner_box .top_btn_box {
+                text-align: center;
+                padding-top: 14px;
+            }
+
+            .pop_banner_box .top_btn_box .top_btn {
+                width: 60px;
+                height: 26px;
+                background-color: #dddcdc;
+                border: 1px solid rgb(220, 219, 219);
+                border-radius: 5px;
+                
+            }
+        </style>
+
+
+
     </body>
-</body>
 
 </html>

@@ -35,8 +35,30 @@
     width: 100%;
 }
 
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  #logo img {
+    animation-name: slideInFromLeft;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+  }
+  
+
+
+
+
 /* .blind {display: block;position:absolute;top:-1000em;left:0;overflow: hidden;} */
 /* 초기화 */
+
 html {
     overflow-y: scroll
 }
