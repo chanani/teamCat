@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        input,p  {display: inline-block;}
+        body > a > img {height: 300px; width: 550px;}
+    </style>
+</head>
+<body>
+
+
+    <a href=""><img src="img/popupimg.png" alt=""></a>
+    <p>오늘하루 보지 않기</p>
+    <input type="checkbox" class="close_btn">
+
+    <script>
+        var close_btn = document.querySelector(".close_btn");
+
+        close_btn.onclick = function(){
+            var date = new Date();
+            date.setDate(date.getDate + 1);
+            var cookie = "";
+            cookie += "teamcat=time; expires" + date.toUTCString() + "; path/";
+
+            document.cookie = cookie;
+
+            window.close();
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>
