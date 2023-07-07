@@ -241,6 +241,17 @@
             padding: 0px 10px;
         }
 
+        .span_{
+            margin-left: 50px;
+            color: red;
+        }
+
+        .this {
+            background-color:#097dd4;
+            color :white;
+            border :1px solid #097dd4;
+        }
+
         
 
     </style>
@@ -690,7 +701,7 @@
                             <option>조리보조</option>
                             <option>안내원</option>
                         </select>
-                        <span class="job_select_"></span>
+                        <span class="job_select_">전체</span>
                     </td>
                 </tr>
                 <tr>
@@ -715,16 +726,17 @@
                             <option>송파구</option>
                             <option>양천구</option>
                         </select>
-                        <span class="region_select_"></span>
+                        <span class="region_select_">전체</span>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row"><label>근무형태</label></th> <!-- EMPLYM_STLE_CMMN_MM-->
                     <td class = "condition">
-                        <input type="checkbox" class="all_check"> 전체
-                        <input type="checkbox"> 상용직
-                        <input type="checkbox"> 일용직
-                        <input type="checkbox"> 정규직
+                        <input type="checkbox" class="all_check" value="전체"> 전체
+                        <input type="checkbox" value="상용직"> 상용직
+                        <input type="checkbox" value="일용직"> 일용직
+                        <input type="checkbox" value="정규직"> 정규직
+                        <span class = "span_"></span>
                     </td>
                 </tr>
                 <tr>
@@ -736,32 +748,36 @@
                         <input type="checkbox"> 고등학교
                         <input type="checkbox"> 전문대학
                         <input type="checkbox"> 대학_대학교
+                        <span class = "span_"></span>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row"><label>경력</label></th> <!-- CAREER_CND_NM-->
                     <td class = "career">
-                        <input type="checkbox" class="all_check"> 전체
-                        <input type="checkbox"> 무관
-                        <input type="checkbox"> 신입
-                        <input type="checkbox" class= "career_y"> 경력
+                        <input type="checkbox" class="all_check" value = "전체"> 전체
+                        <input type="checkbox" value = "무관"> 무관
+                        <input type="checkbox" value = "신입"> 신입
+                        <input type="checkbox" class= "career_y" value = "경력"> 경력
                         <input type="text" class="input_career" disabled = "disabled" >년 ~
                         <input type="text" class="input_career" disabled = "disabled"  >년
+                        <span class = "span_"></span>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row"><label>급여</label></th> <!--HOPE_WAGE-->
                     <td class="pay">
                         <div class="pay_items">
-                            <input type="checkbox" class="all_check">무관
-                            <input type="checkbox"> 연봉
-                            <input type="checkbox"> 월급
-                            <input type="checkbox"> 일급
-                            <input type="checkbox"> 시급
+                            <input type="checkbox" class="all_check" value = "무관">무관
+                            <input type="checkbox" value = "연봉"> 연봉
+                            <input type="checkbox" value = "월급"> 월급
+                            <input type="checkbox" value = "일급"> 일급
+                            <input type="checkbox" value = "시급"> 시급
+                            <span class = "span_"></span>
                         </div>
 
                         최저금액 <input type="text" class="input_pay" disabled="disabled" > (만)원 ~ 최고금액
                         <input type="text" class="input_pay" disabled="disabled">만(원)
+                        <span class = "span_"></span>
                     </td>
                 </tr>
             </table>
@@ -802,6 +818,9 @@
     </div>
 
     <script>
+
+        
+
         var job_select = document.querySelector('.job_select');
         var job_select_ = document.querySelector('.job_select_');
         var region_select = document.querySelector('.region_select');
@@ -810,16 +829,140 @@
             
             if(job_select.value!='전체'){
                 job_select_.innerHTML = '선택 : '+job_select.value;
+            }else{
+                job_select_.innerHTML = '전체';
             }
         }
         region_select.onchange = function(){
             if(region_select.value!='전체'){
                 region_select_.innerHTML = '선택 : '+region_select.value;
+            }else{
+                region_select_.innerHTML = '전체';
             }
         }
 
+            
+
+        // edu career pay
+        var search_btn = document.querySelector('.search_btn');
+        search_btn.onclick = function(){
+
+            
+            var condition = document.querySelectorAll(".condition > input[type=checkbox]");
+            var span = document.querySelector('.condition > .span_');
+            var condi = new Array();
+            for(var i =0 ; i < condition.length;i++){
+                if(condition[i].checked){
+                    condi.push(condition[i].value);
+                }
+            }
+            if(condi.length==0){
+                span.innerHTML = '하나 이상의 선택 필수입니다';
+            }else{
+                span.innerHTML = '';
+            }
+
+
+
+            var edu = document.querySelectorAll(".edu> input[type=checkbox]");
+            var span = document.querySelector('.edu > .span_');
+            var condi2 = new Array();
+            for(var i =0 ; i < edu.length;i++){
+                if(edu[i].checked){
+                    condi2.push(edu[i].value);
+                }
+            }
+            if(condi2.length==0){
+                span.innerHTML = '하나 이상의 선택 필수입니다';
+            }else{
+                span.innerHTML = '';
+            }
+
+            var career = document.querySelectorAll(".career> input[type=checkbox]");
+            var span = document.querySelector('.career > .span_');
+            var condi3 = new Array();
+            for(var i =0 ; i < career.length;i++){
+                if(career[i].checked){
+                    condi3.push(career[i].value);
+                }
+            }
+            if(condi3.length==0){
+                span.innerHTML = '하나 이상의 선택 필수입니다';
+            }else{
+                span.innerHTML = '';
+            }
+
+            var pay = document.querySelectorAll(".pay_items input[type=checkbox]");
+            var span = document.querySelector('.pay > .span_');
+            var pay_ = document.querySelectorAll(".input_pay");
+            var condi4 = new Array();
+            var condi5 = new Array();
+            for(var i =0 ; i < pay.length;i++){
+                if(pay[i].checked){
+                    condi4.push(pay[i].value);
+                }
+            }
+            
+            if(condi4.length==0){
+                span.innerHTML = '하나 이상의 선택 필수입니다';
+            }else{
+                
+                span.innerHTML = '';
+                if(condi4.indexOf('무관')==-1){
+                    for(var i = 0; i <pay_.length; i++){
+                        if(pay_[i].value!=''){
+                            condi5.push(pay_[i].value);
+                            console.log(pay_[i].value);
+                        }
+                    }
+                    if(condi5.length==0){
+                        span.innerHTML = '금액을 입력해주세요';
+                    }else{
+                        span.innerHTML = '';
+                    }
+                }
+                
+            }
+            var job_select = document.querySelector('.job_select_').innerHTML.replace('선택 : ','');
+            var region_select = document.querySelector('.region_select_').innerHTML.replace('선택 : ','');
+            //condi , condi2 job_select.value region_select.value
+            var list = [...row];
+            
+            if(condi.length!=0 && condi2.length!=0&&condi3.length!=0&&condi4.length!=0){
+                console.log('----------'+list.length+'---------------');
+                if(job_select!='전체'){
+                    for(var i = 0 ; i < list.length ; i++){       
+                        console.log(job_select);
+                        console.log(list[i]['JOBCODE_NM']);
+                        console.log(list[i]['JOBCODE_NM'].indexOf(job_select));
+                        if(list[i]['JOBCODE_NM'].indexOf(job_select)==-1){
+                            list.splice(i,1);
+                            i--;
+                        }               
+                    }
+                }
+                if(region_select!='전체'){
+                    for(var i = 0 ; i < list.length ; i++){
+                        console.log(region_select);
+                        console.log(list[i]['WORK_PARAR_BASS_ADRES_CN']);
+                        console.log(list[i]['WORK_PARAR_BASS_ADRES_CN'].indexOf(region_select));                                       
+                        if(list[i]['WORK_PARAR_BASS_ADRES_CN'].indexOf(region_select)==-1){
+                            list.splice(i,1);
+                            i--;
+                        }  
+                    }
+                }
+                console.log(list.length);
+                initial(list, 0);
+
+            }
+
+            
+
+        }    
     </script>
 
+    <!-- 오류 수정 요망 -->
     <script>
 
         var key = '61426f707465736336386261637372';
@@ -856,12 +999,13 @@
         var employee_list = document.getElementById('employee_list');
         var pagination = document.querySelector('.pagination');
 
-        function initial(row, count){    
-
+        function initial(list2, count){    
+            employee_list.innerHTML = '';
             //for(var i = 0 ; i < row.length; i++){
             //console.log(row[i]['JOBCODE_NM'],row[i]['MNGR_INSTT_NM']);
             //}
-            for(var i = 0 ; i < row.length ; i++){
+            
+            for(var i = 0 ; i < list2.length ; i++){
                 var tr = document.createElement('tr');
                 tr.classList.add("list_info");
                 var td = document.createElement('td');
@@ -875,11 +1019,11 @@
                 td4.scope = 'col';
                 td5.scope = 'col';
 
-                td.innerHTML = row[i]['CMPNY_NM'];
-                td2.innerHTML = row[i]['DTY_CN'];
-                td3.innerHTML = (row[i]['HOLIDAY_NM']).replace('근무','');
-                td4.innerHTML = row[i]['WORK_TIME_NM'];
-                td5.innerHTML = row[i]['WORK_PARAR_BASS_ADRES_CN'];
+                td.innerHTML = list2[i]['CMPNY_NM'];
+                td2.innerHTML = list2[i]['DTY_CN'];
+                td3.innerHTML = (list2[i]['HOLIDAY_NM']).replace('근무','');
+                td4.innerHTML = list2[i]['WORK_TIME_NM'];
+                td5.innerHTML = list2[i]['WORK_PARAR_BASS_ADRES_CN'];
 
                 tr.appendChild(td);
                 tr.appendChild(td2);
@@ -893,15 +1037,23 @@
                 employee_list.appendChild(tr);
                 //<a href ="#" class="num num1">1</a>
             }          
-            num_list();
+            num_list(list2);
         }
 
-        function num_list(){
+        function num_list(list2){
+            var num = document.querySelectorAll('.num');
+            if(num!=0){
+                for(var i = 0 ; i < num.length;i++){
+                    num[i].remove();
+                }
+            }
             var a = 0;
-            if(row.length%10!=0){
-                a = row.length/10+1;
-            }else{
-                a = row.length/10;
+            if(list2.length<10){
+                a = 1;
+            }else if(list2.length%10!=0){
+                a = list2.length/10+1;
+            }else {
+                a = list2.length/10;
             }
             var next = document.querySelector('.next');
             for(var i = 1 ; i <= a ; i++){
@@ -948,7 +1100,7 @@
 
         var page_first = document.querySelector('.pagination > .first');
 
-
+        //처음페이지로
         page_first.onclick = function(){
 
             var list = document.querySelectorAll('.pagination .num');
@@ -980,173 +1132,249 @@
 
         var page_prev = document.querySelector('.pagination > .prev');
 
-        
+        // 이전페이지
         page_prev.onclick = function(){
             var list = document.querySelectorAll('.pagination .num');
-            var count = 0;
-            for(var i = 0 ; i < list.length ; i++){
-                if(list[i].classList.contains('this')&&i>0){
-                    count=i-1;
-                    list[i].classList.remove('this');
-                    list[i].style.backgroundColor = 'white';
-                    list[i].style.color = 'black';
-                    list[i].style.border= '1px solid #ccc';
-                    list[i-1].classList.add('this');
-                    list[i-1].style.backgroundColor = '#097dd4';
-                    list[i-1].style.color = 'white';
-                    list[i-1].style.border = '1px solid #097dd4';
-                    
-                    var employee_list2 = document.querySelectorAll('.list_info');
-                    if(i==10){
-                        for(var j = i ; j <=i+9 ;j++){
-                            list[j].style.display = 'none';
-                        }
-                        for(var j = 0 ; j <10 ;j++){
-                            list[j].style.display = '';
-                        }
-                        for(var i =0 ; i < employee_list2.length ; i++){
-                            employee_list2[i].style.display = 'none';
-                            if(i>=count*10 &&i<=count*10+9){
-                                employee_list2[i].style.display = '';
-                            }
-                        }
-                        return;
-                    }
-                    for(var i =0 ; i < employee_list2.length ; i++){
-                    employee_list2[i].style.display = 'none';
-                        if(i>=count*10 &&i<=count*10+9){
-                            employee_list2[i].style.display = '';
-                        }
-                    }
-                    return;
-                }
-            }          
+            
+            for(var i =0 ; i < list.length ; i++){
+                if(list[i].classList.contains('this')){
+                    console.log(i);
+                    if(i==0){
+                        console.log('gg');
                         Swal.fire({
                             icon: 'error',
                             text: '첫번째 페이지 입니다',
+                        })
+                        return;           
+                    }
+                    if(list[i-1].style.display=='none'){
+                        list[i].classList.remove('this');
+                        for(var j = 0 ; j < list.length;j++){
+                            list[j].style.display = 'none';
+                        }
+                        var last_num = i;                        
+                        var count = i%10;
+                        if(i==10) count=10;                        
+                        for(var k = last_num-count; k<last_num; k++){
+                            list[k].style.display='';
+                            if(k==last_num-1){
+                                list[k].classList.add('this');
+                                list[k].style.backgroundColor = '#097dd4';
+                                list[k].style.color = 'white';
+                                list[k].style.border= '1px solid #097dd4';
+                                
+                            }
+                        }
+                        var employee_list2 = document.querySelectorAll('.list_info');
+                        for(var l =0 ; l < employee_list2.length ; l++){
+                            employee_list2[l].style.display = 'none';
+                            if(l>=(last_num-1)*10 &&l<=(last_num-1)*10+9){
+                                employee_list2[l].style.display = '';
+                            }
+                        }
+                    }else{
 
-                    })           
+                        list[i].classList.remove('this');
+                        list[i-1].classList.add('this');
+                        list[i].style.backgroundColor = 'white';
+                        list[i].style.color = 'black';
+                        list[i].style.border= '1px solid #ccc';
+                        list[i-1].style.backgroundColor = '#097dd4';
+                        list[i-1].style.color = 'white';
+                        list[i-1].style.border = '1px solid #097dd4';
+                        var last_num = i-1;                        
+                        var employee_list2 = document.querySelectorAll('.list_info');
+                        for(var j =0 ; j < employee_list2.length ; j++){
+                            employee_list2[j].style.display = 'none';
+                            if(j>=last_num*10 &&j<=last_num*10+9){
+                                employee_list2[j].style.display = '';
+                            }
+                        }
+                        
+                    }
+
+
+
+                }
+            }
         
         }
         var page_next = document.querySelector('.pagination > .next');
 
-
+        // 다음페이지로 가기
         page_next.onclick = function(){
-            var list = document.querySelectorAll('.pagination .num');
-            var count = 0;
-            for(var i = 0 ; i < list.length ; i++){
-                if(list[i].classList.contains('this')&&i<9){
-                    count=i+1;
-                    list[i].classList.remove('this');
-                    list[i].style.backgroundColor = 'white';
-                    list[i].style.color = 'black';
-                    list[i].style.border= '1px solid #ccc';
-                    list[i+1].classList.add('this');
-                    list[i+1].style.backgroundColor = '#097dd4';
-                    list[i+1].style.color = 'white';
-                    list[i+1].style.border = '1px solid #097dd4';
-                    var employee_list2 = document.querySelectorAll('.list_info');
-                    
-                    for(var j =0 ; j < employee_list2.length ; j++){
-                    employee_list2[j].style.display = 'none';
-                        if(j>=count*10 &&j<=count*10+9){
-                            employee_list2[j].style.display = '';
-                        }
-                    }
-                    return;
-                }else if(list[i].classList.contains('this')&&i==9){
-                    for(var j = 0 ; j<= i ; j++){
-                        list[j].style.display='none';
-                    }
-                    count=i+1;
-                    console.log(count); // 10
-                    list[i].classList.remove('this');
-                    list[i].style.backgroundColor = 'white';
-                    list[i].style.color = 'black';
-                    list[i].style.border= '1px solid #ccc';
-                    list[i+1].classList.add('this');
-                    list[i+1].style.backgroundColor = '#097dd4';
-                    list[i+1].style.color = 'white';
-                    list[i+1].style.border= '1px solid #097dd4';
-                    var employee_list2 = document.querySelectorAll('.list_info');
-                    for(var j = i+1;j<=i+10; j++){
-                        list[j].style.display = '';
-                }
-                for(var j =0 ; j < employee_list2.length ; j++){
-                    employee_list2[j].style.display = 'none';
-                        if(j>=count*10 &&j<=count*10+9){
-                            employee_list2[j].style.display = '';
-                        }
-                    }
-                    return;
-                }else if(list[i].classList.contains('this')&&i>=10&&i<19){
-                    
-                    count=i+1;
-                    list[i].classList.remove('this');
-                    list[i].style.backgroundColor = 'white';
-                    list[i].style.color = 'black';
-                    list[i].style.border= '1px solid #ccc';
-                    list[i+1].classList.add('this');
-                    list[i+1].style.backgroundColor = '#097dd4';
-                    list[i+1].style.color = 'white';
-                    list[i+1].style.border= '1px solid #097dd4';
-                    var employee_list2 = document.querySelectorAll('.list_info');
-                    
-                for(var j =0 ; j < employee_list2.length ; j++){
-                    employee_list2[j].style.display = 'none';
-                        if(j>=count*10 &&j<=count*10+9){
-                            employee_list2[j].style.display = '';
-                        }
-                    }
-                    return;
-                }else if(list[i].classList.contains('this')&&i==19){
 
-                    Swal.fire({
+            var list = document.querySelectorAll('.pagination .num');
+            for(var i = 0 ; i < list.length ; i++){
+                if(i==list.length-1){
+                        Swal.fire({
                             icon: 'error',
                             text: '마지막 페이지 입니다',
+                        })
+                        return;           
+                    }
+                if(list[i].classList.contains('this')){
 
-                    })    
+                    if(list[i+1].style.display=='none'){
+                        list[i].classList.remove('this');
+                        list[i+1].classList.add('this');
+                        for(var j = 0 ; j < list.length;j++){
+                            list[j].style.display = 'none';
+                        }                      
+                        for(var j = i+1 ; j < list.length ; j++){
+                            list[j].style.display = '';
+                        }
+                        list[i].style.backgroundColor = 'white';
+                        list[i].style.color = 'black';
+                        list[i].style.border= '1px solid #ccc';
+                        list[i+1].style.backgroundColor = '#097dd4';
+                        list[i+1].style.color = 'white';
+                        list[i+1].style.border = '1px solid #097dd4';
 
+                    }else{
+
+                        list[i].classList.remove('this');
+                        list[i+1].classList.add('this');
+                        list[i].style.backgroundColor = 'white';
+                        list[i].style.color = 'black';
+                        list[i].style.border= '1px solid #ccc';
+                        list[i+1].style.backgroundColor = '#097dd4';
+                        list[i+1].style.color = 'white';
+                        list[i+1].style.border = '1px solid #097dd4';
+
+                    }
+
+                    var employee_list2 = document.querySelectorAll('.list_info');
+                        for(var k =0 ; k < employee_list2.length ; k++){
+                            employee_list2[k].style.display = 'none';
+                            if(k>=(i+1)*10 &&k<=(i+1)*10+9){
+                                employee_list2[k].style.display = '';
+                            }
+                        }
+                    return;
                 }
-            }                
+            }
+
+
+            // var count = 0;
+            // for(var i = 0 ; i < list.length ; i++){
+            //     if(list[i].classList.contains('this')&&i<9){
+            //         count=i+1;
+            //         list[i].classList.remove('this');
+            //         list[i].style.backgroundColor = 'white';
+            //         list[i].style.color = 'black';
+            //         list[i].style.border= '1px solid #ccc';
+            //         list[i+1].classList.add('this');
+            //         list[i+1].style.backgroundColor = '#097dd4';
+            //         list[i+1].style.color = 'white';
+            //         list[i+1].style.border = '1px solid #097dd4';
+            //         var employee_list2 = document.querySelectorAll('.list_info');
+                    
+            //         for(var j =0 ; j < employee_list2.length ; j++){
+            //         employee_list2[j].style.display = 'none';
+            //             if(j>=count*10 &&j<=count*10+9){
+            //                 employee_list2[j].style.display = '';
+            //             }
+            //         }
+            //         return;
+            //     }else if(list[i].classList.contains('this')&&i==9){
+            //         for(var j = 0 ; j<= i ; j++){
+            //             list[j].style.display='none';
+            //         }
+            //         count=i+1;
+            //         console.log(count); // 10
+            //         list[i].classList.remove('this');
+            //         list[i].style.backgroundColor = 'white';
+            //         list[i].style.color = 'black';
+            //         list[i].style.border= '1px solid #ccc';
+            //         list[i+1].classList.add('this');
+            //         list[i+1].style.backgroundColor = '#097dd4';
+            //         list[i+1].style.color = 'white';
+            //         list[i+1].style.border= '1px solid #097dd4';
+            //         var employee_list2 = document.querySelectorAll('.list_info');
+            //         for(var j = i+1;j<=i+10; j++){
+            //             list[j].style.display = '';
+            //     }
+            //     for(var j =0 ; j < employee_list2.length ; j++){
+            //         employee_list2[j].style.display = 'none';
+            //             if(j>=count*10 &&j<=count*10+9){
+            //                 employee_list2[j].style.display = '';
+            //             }
+            //         }
+            //         return;
+            //     }else if(list[i].classList.contains('this')&&i>=10&&i<19){
+                    
+            //         count=i+1;
+            //         list[i].classList.remove('this');
+            //         list[i].style.backgroundColor = 'white';
+            //         list[i].style.color = 'black';
+            //         list[i].style.border= '1px solid #ccc';
+            //         list[i+1].classList.add('this');
+            //         list[i+1].style.backgroundColor = '#097dd4';
+            //         list[i+1].style.color = 'white';
+            //         list[i+1].style.border= '1px solid #097dd4';
+            //         var employee_list2 = document.querySelectorAll('.list_info');
+                    
+            //     for(var j =0 ; j < employee_list2.length ; j++){
+            //         employee_list2[j].style.display = 'none';
+            //             if(j>=count*10 &&j<=count*10+9){
+            //                 employee_list2[j].style.display = '';
+            //             }
+            //         }
+            //         return;
+            //     }else if(list[i].classList.contains('this')&&i==19){
+
+            //         Swal.fire({
+            //                 icon: 'error',
+            //                 text: '마지막 페이지 입니다',
+
+            //         })    
+
+            //     }
+            // }                
         
 
         }
 
         var page_last = document.querySelector('.pagination > .last');
-
+        
+        //마지막 페이지로 가기
         page_last.onclick = function(){
             var list = document.querySelectorAll('.pagination .num');
-            for(var i = 0 ; i < list.length ; i++){
-                if(i>10&&i<20){
-                    list[i].style.display='';
-                }else{
-                    list[i].style.display = 'none'
-                }
+            var last_num = list.length-1;
+            console.log(last_num);
+            var count = last_num%10;
+            console.log(count);
+            for(var i = 0 ; i < list.length; i++){
+                list[i].style.display='none';
                 if(list[i].classList.contains('this')){
                     list[i].classList.remove('this');
+                    list[i].style.backgroundColor = 'white';
+                    list[i].style.color = 'black';
+                    list[i].style.border= '1px solid #ccc';
                 }
-                if(i==19){
+            }
+            for(var i = last_num-count; i<=last_num; i++){
+                list[i].style.display='';
+                if(i==last_num){
                     list[i].classList.add('this');
                     list[i].style.backgroundColor = '#097dd4';
                     list[i].style.color = 'white';
                     list[i].style.border= '1px solid #097dd4';
                 }
             }
-            count = 19;
             var employee_list2 = document.querySelectorAll('.list_info');
-                    
-                for(var j =0 ; j < employee_list2.length ; j++){
-                    employee_list2[j].style.display = 'none';
-                        if(j>=count*10 &&j<count*10+9){
-                            employee_list2[j].style.display = '';
-                        }
-                    }
-                    return;
+            for(var j =0 ; j < employee_list2.length ; j++){
+                employee_list2[j].style.display = 'none';
+                if(j>=last_num*10 &&j<last_num*10+9){
+                    employee_list2[j].style.display = '';
+                }
+            }
+            return;
 
         }
     </script>
-
+    <!--필터링 기능 추가 가능하면 하기-->
     <script>
         var all_check = document.querySelector('.condition .all_check');
         var condition = document.querySelector(".condition");
