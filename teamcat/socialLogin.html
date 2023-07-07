@@ -44,7 +44,7 @@
         }
 
         .social_login_box .social_login_tit {
-            padding-top: 14px;
+            padding-top: 17px;
         }
 
         .social_login_box .social_login_tit>input {
@@ -750,21 +750,19 @@
                         <p id="token-result"></p>
                     </li>
                     <li class="login_right">
-                        <a href="join.html" id="naverIdLogin_loginButton">
+                        <a href="socialLogin.html" id="naverIdLogin_loginButton">
                             <img src="img/naverimg.png"> </a>
                     </li>
                 </ul>
 
 
+                <div class="login">
 
-                <div class="join_form">
-                    <button type="button" onclick="location.href='join.html'" class="join_btn">아이디 만들기
-                    </button>
-                    <div class="login">
-                        <p>이미 계정이 있나요? <a href="login.html">ID 로그인하기</a></p>
-
-                    </div>
                 </div>
+            </div>
+            <div class="join_form">
+                <button type="button" onclick="location.href='join.html'" class="join_btn">아이디 만들기
+                </button>
             </div>
         </div>
     </div>
@@ -786,14 +784,30 @@
         var loginId = document.querySelector(".login_id");
 
         loginBtn.onclick = function () {
-
-    
-            localStorage.setItem(1,loginId.value);
+            localStorage.setItem(1, loginId.value);
             location.href = "mainpage.html";
         }
 
+        
 
     </script>
+
+    <script type="text/javascript" src="mainjs/naver.js"></script>
+
+        <script type="text/javascript">
+            var naverLogin = new naver.LoginWithNaverId(
+                {
+                    clientId: "jbqUtroSoxBS3YrPsenG",
+                    callbackUrl: "http://127.0.0.1:5500/99.project/main.html",
+                    isPopup: true, /* 팝업을 통한 연동처리 여부, true 면 팝업 */
+
+                }
+            );
+
+            naverLogin.init();
+        </script>
+
+
 
 
     <div id="footer">
